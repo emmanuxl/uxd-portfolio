@@ -1,0 +1,3270 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuSign — Case Study · Emmanuel Edigbe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root,
+      [data-theme="dark"] {
+        --bg: #1c1c1c;
+        --bg2: #242424;
+        --bg3: #2c2c2c;
+        --surface: #323232;
+        --border: rgba(255, 255, 255, 0.08);
+        --border2: rgba(255, 255, 255, 0.15);
+        --ink: #f0f0ee;
+        --ink2: #ccccca;
+        --muted: #b8b8b6;
+        --gold: #f0f0ee;
+        --gold2: #ccccca;
+        --indigo: #b8b0ff;
+        --indigo2: #c4beff;
+        --indigo-subtle: rgba(184, 176, 255, 0.07);
+        --indigo-border: rgba(184, 176, 255, 0.2);
+        --indigo-chip: rgba(184, 176, 255, 0.1);
+        --teal: #7dd3cc;
+        --teal-subtle: rgba(125, 211, 204, 0.07);
+        --teal-border: rgba(125, 211, 204, 0.2);
+        --teal-chip: rgba(125, 211, 204, 0.1);
+        --gold-subtle: rgba(240, 240, 238, 0.05);
+        --gold-border: rgba(240, 240, 238, 0.15);
+        --pullquote-bg: rgba(184, 176, 255, 0.05);
+        --nav-blur: rgba(28, 28, 28, 0.9);
+        --r: 8px;
+        color-scheme: dark;
+      }
+      [data-theme="light"] {
+        --bg: #f7f7f5;
+        --bg2: #eeeeec;
+        --bg3: #e4e4e2;
+        --surface: #ffffff;
+        --border: rgba(0, 0, 0, 0.09);
+        --border2: rgba(0, 0, 0, 0.16);
+        --ink: #1c1c1c;
+        --ink2: #3a3a3a;
+        --muted: #4a4a4a;
+        --gold: #1c1c1c;
+        --gold2: #000000;
+        --indigo: #3730a3;
+        --indigo2: #2e2890;
+        --indigo-subtle: rgba(55, 48, 163, 0.05);
+        --indigo-border: rgba(55, 48, 163, 0.2);
+        --indigo-chip: rgba(55, 48, 163, 0.08);
+        --teal: #0f4a45;
+        --teal-subtle: rgba(15, 74, 69, 0.05);
+        --teal-border: rgba(15, 74, 69, 0.2);
+        --teal-chip: rgba(15, 74, 69, 0.08);
+        --gold-subtle: rgba(28, 28, 28, 0.04);
+        --gold-border: rgba(28, 28, 28, 0.18);
+        --pullquote-bg: rgba(55, 48, 163, 0.04);
+        --nav-blur: rgba(247, 247, 245, 0.92);
+        --r: 8px;
+        color-scheme: light;
+      }
+      html {
+        scroll-behavior: smooth;
+        background: var(--bg);
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "DM Mono", monospace;
+        font-size: 14px;
+        line-height: 1.7;
+        overflow-x: hidden;
+        transition:
+          background 0.35s,
+          color 0.35s;
+        cursor: none;
+      }
+      #cursor {
+        position: fixed;
+        top: -100px;
+        left: -100px;
+        z-index: 9999;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+      }
+      #cursor .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--indigo);
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
+      #cursor .ring {
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--indigo);
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+        transition:
+          width 0.25s,
+          height 0.25s,
+          opacity 0.25s;
+      }
+      body:has(a:hover) #cursor .ring,
+      body:has(button:hover) #cursor .ring {
+        width: 28px;
+        height: 28px;
+        border: 1px solid var(--indigo);
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+        transition:
+          width 0.25s,
+          height 0.25s,
+          opacity 0.25s;
+      }
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--teal);
+        border-radius: 4px;
+      }
+      :focus-visible {
+        outline: 2px solid var(--teal);
+        outline-offset: 4px;
+        border-radius: 2px;
+      }
+      #main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 1.2rem 4rem;
+        border-bottom: 1px solid transparent;
+        transition:
+          background 0.4s,
+          border-color 0.4s,
+          backdrop-filter 0.4s;
+      }
+      #main-nav.scrolled {
+        background: var(--nav-blur);
+        border-color: var(--border);
+        backdrop-filter: blur(18px);
+      }
+      .nav-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        font-weight: 300;
+        letter-spacing: 0.12em;
+        color: var(--ink);
+        text-decoration: none;
+        flex-shrink: 0;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        transition: color 0.25s;
+        white-space: nowrap;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--indigo);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+      }
+      .toggle-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .toggle-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+        user-select: none;
+      }
+      #theme-toggle {
+        position: relative;
+        width: 52px;
+        height: 28px;
+        background: var(--surface);
+        border: 1px solid var(--border2);
+        border-radius: 100px;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+      }
+      #theme-toggle:hover {
+        border-color: var(--ink);
+      }
+      .toggle-track {
+        position: absolute;
+        inset: 0;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6px;
+        pointer-events: none;
+      }
+      .toggle-track svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+        transition: opacity 0.3s;
+      }
+      .icon-moon {
+        color: var(--indigo);
+        opacity: 1;
+      }
+      .icon-sun {
+        color: var(--indigo);
+        opacity: 0.4;
+      }
+      [data-theme="light"] .icon-moon {
+        opacity: 0.4;
+      }
+      [data-theme="light"] .icon-sun {
+        opacity: 1;
+      }
+      .toggle-thumb {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--ink);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+      }
+      [data-theme="light"] .toggle-thumb {
+        transform: translateX(24px);
+      }
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: 1px solid var(--border2);
+        border-radius: 6px;
+        padding: 6px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 100%;
+        height: 1.5px;
+        background: var(--ink);
+        border-radius: 2px;
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+      }
+      .nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+      .nav-mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 101;
+        background: var(--bg);
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 2.5rem;
+      }
+      .nav-mobile-overlay.open {
+        display: flex;
+      }
+      .nav-mobile-close {
+        position: absolute;
+        top: 1.1rem;
+        right: 1.1rem;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: 1px solid var(--border2);
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink);
+        transition: border-color 0.2s;
+      }
+      .nav-mobile-close:hover {
+        border-color: var(--ink);
+      }
+      .nav-mobile-close svg {
+        width: 16px;
+        height: 16px;
+      }
+      .nav-mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        list-style: none;
+      }
+      .nav-mobile-links a {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.4rem;
+        font-weight: 300;
+        color: var(--ink);
+        text-decoration: none;
+        transition: color 0.2s;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+      .nav-mobile-links a:hover,
+      .nav-mobile-links a.active {
+        color: var(--indigo);
+      }
+      .nav-mobile-sub {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 1.5rem;
+      }
+      .nav-mobile-sub a {
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-mobile-sub a:hover {
+        color: var(--ink);
+      }
+      @media (max-width: 900px) {
+        #main-nav {
+          padding: 1rem 1.4rem;
+          gap: 0.8rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        .toggle-label {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+      }
+      @media (max-width: 520px) {
+        #main-nav {
+          padding: 0.85rem 1rem;
+        }
+      }
+      #cs-hero {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto auto;
+        align-items: start;
+        gap: 0 4rem;
+        padding: 120px 4rem 4rem;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.35s;
+      }
+      .cs-hero-content {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+      }
+      .cs-stat-row {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.6rem;
+        z-index: 1;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.95s forwards;
+        align-self: center;
+      }
+      .cs-stat {
+        text-align: right;
+      }
+      .cs-stat-num {
+        font-family: "Syne", sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+      .cs-stat-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.4rem;
+      }
+      .cs-meta-row {
+        grid-column: 1/-1;
+        grid-row: 2;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.6rem 0;
+        border-top: 1px solid var(--border);
+        opacity: 0;
+        animation: fadeUp 0.8s 0.8s forwards;
+        margin-top: 2rem;
+      }
+      .cs-meta-item {
+        flex: 1;
+        min-width: 140px;
+        padding: 0 2rem;
+        border-right: 1px solid var(--border);
+      }
+      .cs-meta-item:first-child {
+        padding-left: 0;
+      }
+      .cs-meta-item:last-child {
+        border-right: none;
+      }
+      .cs-meta-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.3rem;
+      }
+      .cs-meta-value {
+        font-size: 0.82rem;
+        color: var(--ink);
+      }
+      .cs-meta-value.highlight {
+        color: var(--ink);
+        font-weight: 500;
+      }
+      .hero-back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--muted);
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-bottom: 2rem;
+        opacity: 0;
+        animation: fadeUp 0.6s 0.2s forwards;
+        transition: color 0.25s;
+      }
+      .hero-back-link:hover {
+        color: var(--gold);
+      }
+      .cs-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1rem;
+        opacity: 0;
+        animation: fadeUp 0.7s 0.35s forwards;
+        display: block;
+      }
+      .cs-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.8rem, 3.5vw, 3.8rem);
+        font-weight: 300;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        max-width: 780px;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.5s forwards;
+      }
+      .cs-title em {
+        font-style: italic;
+        color: var(--indigo);
+      }
+      .cs-subtitle {
+        margin-top: 1.4rem;
+        max-width: 520px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.8;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.65s forwards;
+      }
+      .cs-body {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 4rem 2rem 5rem;
+        background: var(--bg);
+        transition: background 0.35s;
+      }
+      .cs-section {
+        margin-bottom: 5.5rem;
+      }
+      .cs-section-tag {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.8rem;
+        display: block;
+      }
+      .cs-h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 4vw, 3.2rem);
+        font-weight: 300;
+        line-height: 1.15;
+        margin-bottom: 1.6rem;
+      }
+      .cs-h2 em {
+        font-style: italic;
+        color: var(--indigo);
+      }
+      .cs-h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        color: var(--ink);
+        margin-top: 2.5rem;
+      }
+      .cs-h4 {
+        font-family: "DM Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 0.5rem;
+        margin-top: 1.4rem;
+      }
+      .cs-p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 2;
+        margin-bottom: 1.4rem;
+      }
+      .cs-p strong {
+        color: var(--ink);
+      }
+      .cs-divider {
+        width: 60px;
+        height: 1px;
+        background: var(--teal);
+        opacity: 0.3;
+        margin: 4rem 0;
+      }
+      .cs-pullquote {
+        border-left: 3px solid var(--indigo);
+        padding: 1.4rem 1.8rem;
+        margin: 2.8rem 0;
+        background: var(--pullquote-bg);
+        border-radius: 0 var(--r) var(--r) 0;
+        transition: background 0.35s;
+      }
+      .cs-pullquote p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        font-weight: 300;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.55;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      .cs-tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 1px solid var(--border2);
+        border-radius: 100px;
+        padding: 0.25rem 0.75rem;
+        color: var(--muted);
+      }
+      .cs-tag.teal {
+        color: var(--teal);
+        border-color: var(--teal-border);
+      }
+      .cs-tag.gold {
+        color: var(--gold);
+        border-color: var(--gold-border);
+      }
+      .img-placeholder {
+        width: 100%;
+        background: var(--bg3);
+        border: 1px dashed var(--border2);
+        border-radius: var(--r);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 2.5rem;
+        text-align: center;
+        transition: background 0.35s;
+        margin: 1.4rem 0;
+      }
+      .img-placeholder .img-icon {
+        color: var(--muted);
+        opacity: 0.4;
+      }
+      .img-placeholder .img-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        opacity: 0.7;
+        max-width: 380px;
+        line-height: 1.6;
+      }
+      .img-placeholder .img-desc {
+        font-size: 0.68rem;
+        color: var(--muted);
+        opacity: 0.5;
+        font-style: italic;
+      }
+      .img-placeholder.tall {
+        min-height: 300px;
+      }
+      .img-placeholder.medium {
+        min-height: 220px;
+      }
+      .img-placeholder.wide {
+        min-height: 160px;
+      }
+      .img-2up {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .stat-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        text-align: center;
+        transition: background 0.35s;
+      }
+      .stat-num {
+        font-family: "Syne", sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--teal);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.4rem;
+      }
+      .finding-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .finding-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          background 0.35s,
+          border-color 0.3s;
+      }
+      .finding-card:hover {
+        border-color: var(--teal-border);
+      }
+      .finding-num {
+        font-family: "Syne", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--teal);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      .finding-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.4rem;
+      }
+      .finding-text {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .persona-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        margin: 2rem 0;
+      }
+      .persona-card {
+        padding: 1.6rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          border-color 0.3s,
+          background 0.35s;
+      }
+      .persona-card:hover {
+        border-color: var(--teal-border);
+      }
+      .persona-name {
+        font-family: "Syne", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 0.15rem;
+      }
+      .persona-role {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 0.8rem;
+      }
+      .persona-desc {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 0.7rem;
+      }
+      .persona-needs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .persona-need {
+        font-size: 0.72rem;
+        color: var(--muted);
+        padding-left: 0.8rem;
+        position: relative;
+        line-height: 1.5;
+      }
+      .persona-need::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--teal);
+        font-size: 0.65rem;
+      }
+      .screen-section {
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        margin: 2rem 0;
+        transition: border-color 0.3s;
+      }
+      .screen-section:hover {
+        border-color: var(--teal-border);
+      }
+      .screen-header {
+        padding: 1.4rem 1.8rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        background: var(--bg3);
+        transition: background 0.35s;
+      }
+      .screen-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .screen-caption {
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-top: 0.2rem;
+        line-height: 1.5;
+      }
+      .screen-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--teal);
+        background: var(--teal-chip);
+        border: 1px solid var(--teal-border);
+        padding: 0.2rem 0.65rem;
+        border-radius: 100px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .screen-body {
+        padding: 1.6rem 1.8rem;
+      }
+
+      .decision-item strong {
+        color: var(--ink);
+      }
+      .outcome-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .outcome-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          background 0.35s,
+          border-color 0.3s;
+      }
+      .outcome-card:hover {
+        border-color: var(--teal-border);
+      }
+      .outcome-icon {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+      }
+      .outcome-text {
+        font-size: 0.77rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .outcome-text strong {
+        color: var(--ink);
+      }
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .principle-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          background 0.35s,
+          border-color 0.3s;
+      }
+      .principle-card:hover {
+        border-color: var(--teal-border);
+      }
+      .principle-num {
+        font-family: "Syne", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--teal);
+        opacity: 0.3;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      .principle-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.4rem;
+      }
+      .principle-text {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .ds-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .ds-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition: background 0.35s;
+      }
+      .ds-swatch {
+        height: 48px;
+        border-radius: 6px;
+        margin-bottom: 0.8rem;
+      }
+      .ds-label {
+        font-family: "Syne", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.2rem;
+      }
+      .ds-sub {
+        font-size: 0.68rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .insight-card .ic-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 0.4rem;
+      }
+      .insight-card .ic-text {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .insight-card .ic-text strong {
+        color: var(--ink);
+      }
+      .scenario-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin: 1.5rem 0;
+      }
+      .scenario-card {
+        padding: 1.6rem 1.8rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          background 0.35s,
+          border-color 0.3s;
+      }
+      .scenario-card:hover {
+        border-color: var(--teal-border);
+      }
+      .scenario-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+      }
+      .scenario-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Syne", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .scenario-name {
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .scenario-context {
+        font-size: 0.68rem;
+        color: var(--muted);
+        margin-top: 0.1rem;
+      }
+      .scenario-text {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      .arch-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin: 1.5rem 0;
+      }
+      .arch-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        padding: 0.9rem 1.2rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition: background 0.35s;
+      }
+      .arch-num {
+        font-family: "Syne", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--teal);
+        background: var(--teal-chip);
+        border: 1px solid var(--teal-border);
+        padding: 0.15rem 0.55rem;
+        border-radius: 4px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        min-width: 24px;
+        text-align: center;
+      }
+      .arch-text {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .arch-text strong {
+        color: var(--ink);
+      }
+      .test-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .test-stat {
+        padding: 1.2rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        text-align: center;
+        transition: background 0.35s;
+      }
+      .test-stat .ts-num {
+        font-family: "Syne", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--teal);
+        line-height: 1;
+      }
+      .test-stat .ts-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.3rem;
+      }
+      .iteration-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .iter-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition: background 0.35s;
+      }
+      .iter-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0.25rem 0;
+        border-radius: 4px;
+        margin-bottom: 0.8rem;
+      }
+      .iter-label.before {
+        color: var(--muted);
+        border: 1px solid var(--border);
+      }
+      .iter-label.after {
+        color: var(--teal);
+        background: var(--teal-chip);
+        border: 1px solid var(--teal-border);
+      }
+      .iter-text {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .iter-text strong {
+        color: var(--ink);
+      }
+      .future-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .future-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          border-color 0.3s,
+          transform 0.3s,
+          background 0.35s;
+      }
+      .future-card:hover {
+        border-color: var(--teal-border);
+        transform: translateY(-2px);
+      }
+      .future-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.7rem;
+      }
+      .future-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--teal);
+        margin-bottom: 0.4rem;
+      }
+      .future-text {
+        font-size: 0.74rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .feature-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          border-color 0.3s,
+          background 0.35s;
+      }
+      .feature-card:hover {
+        border-color: var(--teal-border);
+      }
+      .feature-card .fc-tag {
+        font-size: 0.6rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--teal);
+        background: var(--teal-chip);
+        border: 1px solid var(--teal-border);
+        padding: 0.15rem 0.55rem;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 0.6rem;
+      }
+      .feature-card .fc-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.4rem;
+      }
+      .feature-card .fc-text {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-d1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-d2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-d3 {
+        transition-delay: 0.3s;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+      @media (max-width: 900px) {
+        #cs-hero {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+          padding: 80px 1.4rem 3rem;
+          align-items: flex-start;
+        }
+        .cs-hero-content {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        .cs-stat-row {
+          grid-column: 1;
+          grid-row: 2;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 2rem;
+          margin-top: 2rem;
+          padding: 1.4rem 0;
+          border-top: 1px solid var(--border);
+        }
+        .cs-stat {
+          text-align: left;
+        }
+        .cs-stat-num {
+          font-size: 1.8rem;
+        }
+        .cs-meta-row {
+          grid-column: 1;
+          grid-row: 3;
+          flex-direction: column;
+          padding: 0;
+          margin-top: 0;
+          border-top: none;
+        }
+        .cs-meta-item {
+          padding: 1rem 0;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          min-width: unset;
+          flex: unset;
+        }
+        .cs-meta-item:last-child {
+          border-bottom: none;
+        }
+        .cs-body {
+          max-width: 860px;
+          margin: 0 auto;
+          padding: 4rem 2rem 5rem;
+          background: var(--bg);
+          transition: background 0.35s;
+        }
+        .principle-grid,
+        .ds-row,
+        .outcome-row,
+        .img-2up,
+        .finding-grid,
+        .feature-grid,
+        .persona-grid,
+        .insight-row,
+        .iteration-pair {
+          grid-template-columns: 1fr;
+        }
+        .stat-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .test-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .future-grid {
+          grid-template-columns: 1fr;
+        }
+        .screen-header {
+          flex-direction: column;
+          gap: 0.6rem;
+        }
+      }
+      @media (max-width: 480px) {
+        #cs-hero {
+          padding: 72px 1rem 2.5rem;
+        }
+        .cs-body {
+          max-width: 860px;
+          margin: 0 auto;
+          padding: 4rem 2rem 5rem;
+          background: var(--bg);
+          transition: background 0.35s;
+        }
+        .stat-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .test-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* HERO GRADIENT */
+      #cs-hero {
+        background: linear-gradient(
+          170deg,
+          #1c1c1c 0%,
+          #242424 60%,
+          #1c1c1c 100%
+        );
+        transition: background 0.35s;
+      }
+      [data-theme="light"] #cs-hero {
+        background: linear-gradient(
+          170deg,
+          #f7f7f5 0%,
+          #eeeeec 60%,
+          #f7f7f5 100%
+        );
+      }
+      .cs-nav-
+
+      /* Readability improvements */
+      .cs-p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 2.05;
+        margin-bottom: 1.6rem;
+      }
+      .cs-section {
+        margin-bottom: 5.5rem;
+      }
+      .cs-h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        font-weight: 300;
+        line-height: 1.15;
+        margin-bottom: 1.8rem;
+      }
+      .cs-h2 em {
+        font-style: italic;
+        color: var(--indigo);
+      }
+      .cs-h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        color: var(--ink);
+        margin-top: 2.2rem;
+      }
+      .cs-body {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 4rem 2rem 5rem;
+        background: var(--bg);
+        transition: background 0.35s;
+      }
+      /* Divider between sub-sections */
+      .cs-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 3rem 0;
+        border: none;
+      }
+      /* Highlight box for key insights */
+      .cs-callout {
+        background: var(--indigo-subtle);
+        border-left: 3px solid var(--indigo);
+        border-radius: 0 var(--r) var(--r) 0;
+        padding: 1.2rem 1.6rem;
+        margin: 2rem 0;
+      }
+      .cs-callout p {
+        font-size: 0.85rem;
+        color: var(--ink);
+        line-height: 1.85;
+        margin: 0;
+      }
+      .cs-callout strong {
+        color: var(--indigo);
+      }
+      /* Stat row */
+      .cs-stat-row {
+        display: flex;
+        gap: 1.5rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .cs-stat-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.4rem;
+      }
+      a,
+      button,
+      [role="button"],
+      label {
+        cursor: pointer !important;
+      }
+      .tl-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin: 2rem 0;
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        transition: border-color 0.35s;
+      }
+      .tl-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.2rem 1.4rem;
+        border-bottom: 1px solid var(--border);
+        transition: background 0.25s;
+      }
+      .tl-item:last-child {
+        border-bottom: none;
+      }
+      .tl-item:hover {
+        background: var(--bg2);
+      }
+      .tl-icon {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        border-radius: 50%;
+        background: var(--indigo-subtle);
+        border: 1px solid var(--indigo-border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+      .tl-icon svg {
+        width: 12px;
+        height: 12px;
+        color: var(--indigo);
+        display: block;
+        flex-shrink: 0;
+      }
+      .tl-content {
+        flex: 1;
+        min-width: 0;
+      }
+      .tl-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.25rem;
+      }
+      .tl-desc {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .outcome-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .outcome-card {
+        padding: 1.4rem;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .oc-icon {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+      .oc-text {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .ds-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+      .ds-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        transition: background 0.35s;
+      }
+      .ds-swatch {
+        height: 64px;
+        width: 100%;
+      }
+      .ds-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--ink);
+        padding: 0.6rem 0.8rem 0.2rem;
+      }
+      .ds-sub {
+        font-size: 0.68rem;
+        color: var(--muted);
+        padding: 0 0.8rem 0.8rem;
+        line-height: 1.6;
+      }
+      .next-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .next-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.4rem;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+      }
+      .next-card:hover {
+        border-color: var(--indigo-border);
+      }
+      .next-icon {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+      }
+      .next-title {
+        font-family: "Syne", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 0.4rem;
+      }
+      .next-desc {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .testing-stats {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1.5rem 0;
+      }
+      .t-stat {
+        flex: 1;
+        min-width: 130px;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.2rem 1.4rem;
+        text-align: center;
+      }
+      .t-stat .num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--indigo);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .t-stat .num.red {
+        color: #e05555;
+      }
+      .t-stat .lbl {
+        font-size: 0.68rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .result-card {
+        flex: 1;
+        min-width: 160px;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.4rem;
+        text-align: center;
+        transition: background 0.35s;
+      }
+      .result-card .r-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--indigo);
+        line-height: 1;
+        margin-bottom: 0.4rem;
+      }
+      .result-card .r-desc {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .results-grid {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+      /* ── PAGE FOOTER ── */
+
+      @media (max-width: 680px) {
+      }
+
+      @media (max-width: 680px) {
+      }
+      .iteration-box {
+        background: var(--indigo-subtle);
+        border-left: 3px solid var(--indigo);
+        border-radius: 0 var(--r) var(--r) 0;
+        padding: 1.2rem 1.6rem;
+        margin: 1.4rem 0;
+        transition: background 0.35s;
+      }
+      .iteration-box h4 {
+        font-family: "Syne", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--indigo);
+        margin-bottom: 0.4rem;
+      }
+      .iteration-box p {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.75;
+        margin: 0;
+      }
+      .insight-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .insight-card {
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.2rem 1.4rem;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+      }
+      .insight-card:hover {
+        border-color: var(--indigo-border);
+      }
+      .insight-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--indigo);
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+      }
+      .insight-text {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .decision-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin: 1.4rem 0;
+      }
+      .decision-item {
+        display: flex;
+        gap: 0.8rem;
+        align-items: flex-start;
+        font-size: 0.84rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .decision-item::before {
+        content: "→";
+        color: var(--indigo);
+        font-size: 0.8rem;
+        flex-shrink: 0;
+        margin-top: 0.15rem;
+      }
+
+      @media (max-width: 600px) {
+      }
+
+      @media (max-width: 600px) {
+      }
+
+      .cs-stats-inline {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+      .cs-stat-box {
+        flex: 1;
+        min-width: 140px;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        padding: 1.2rem 1.4rem;
+        text-align: center;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+        display: block;
+      }
+      .cs-stat-box .num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--indigo);
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+      .cs-stat-box .lbl {
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      @media (max-width: 600px) {
+        .cs-stats-inline {
+          flex-direction: column;
+        }
+        .cs-stat-box {
+          min-width: 100%;
+        }
+      }
+      .cs-nav-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        transition: border-color 0.35s;
+      }
+      .cs-nav-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-decoration: none;
+        padding: 2rem 4rem;
+        flex: 1;
+        transition: background 0.25s;
+      }
+      .cs-nav-link:hover {
+        background: var(--bg2);
+      }
+      .cs-nav-next {
+        border-left: 1px solid var(--border);
+        text-align: right;
+        transition:
+          background 0.25s,
+          border-color 0.35s;
+      }
+      .cs-nav-dir {
+        font-size: 0.62rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--indigo);
+        margin-bottom: 0.4rem;
+      }
+      .cs-nav-label {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        font-weight: 300;
+        color: var(--ink);
+        line-height: 1.2;
+        transition: color 0.25s;
+      }
+      .cs-nav-link:hover .cs-nav-label {
+        color: var(--indigo);
+      }
+      [data-theme="light"] .cs-nav-footer {
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+      [data-theme="light"] .cs-nav-next {
+        border-color: rgba(0, 0, 0, 0.12);
+      }
+      [data-theme="light"] .cs-nav-link:hover {
+        background: var(--bg2);
+      }
+      [data-theme="light"] .cs-nav-dir {
+        color: #3730a3;
+      }
+      [data-theme="light"] .cs-nav-link:hover .cs-nav-label {
+        color: #3730a3;
+      }
+      @media (max-width: 600px) {
+        .cs-nav-link {
+          padding: 1.5rem 1.4rem;
+        }
+        .cs-nav-footer {
+          flex-direction: column;
+        }
+        .cs-nav-next {
+          border-left: none;
+          border-top: 1px solid var(--border);
+          text-align: left;
+        }
+      }
+      footer {
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+        padding: 1.8rem 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition:
+          background 0.35s,
+          border-color 0.35s;
+      }
+      footer p {
+        font-size: 0.68rem;
+        color: var(--ink);
+        letter-spacing: 0.08em;
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.8rem;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        font-size: 0.68rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      .footer-links a:hover {
+        color: var(--ink);
+      }
+      [data-theme="light"] footer {
+        background: #f7f7f5;
+        border-top-color: rgba(0, 0, 0, 0.12);
+      }
+      [data-theme="light"] footer p {
+        color: #1c1c1c;
+      }
+      [data-theme="light"] .footer-links a {
+        color: #4a4a4a;
+      }
+      [data-theme="light"] .footer-links a:hover {
+        color: #1c1c1c;
+      }
+      @media (max-width: 680px) {
+        footer {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.4rem 1.2rem;
+          text-align: center;
+        }
+        .footer-links {
+          justify-content: center;
+          gap: 0.6rem 1.2rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        #cs-hero {
+          padding-left: calc((100vw - 1080px) / 2 + 2rem);
+          padding-right: calc((100vw - 1080px) / 2 + 2rem);
+        }
+        .cs-body {
+          max-width: 1080px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor" aria-hidden="true">
+      <div class="dot"></div>
+      <div class="ring"></div>
+    </div>
+    <nav id="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">EE</a>
+        <ul class="nav-links">
+          <li><a href="work.html">Work</a></li>
+          <li><a href="writing.html">Writing</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#process">Process</a></li>
+          <li><a href="#">Résumé ↗</a></li>
+        </ul>
+        <div class="nav-right">
+          <div class="toggle-wrap">
+            <span class="toggle-label" id="toggle-label">Dark Mode</span>
+            <button id="theme-toggle" aria-label="Toggle light/dark mode">
+              <div class="toggle-track">
+                <svg
+                  class="icon-moon"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M13.5 9.5A6 6 0 016.5 2.5a6 6 0 100 11 6 6 0 007-4z"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="icon-sun"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="3"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                  />
+                  <line
+                    x1="8"
+                    y1="1"
+                    x2="8"
+                    y2="3"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="8"
+                    y1="13"
+                    x2="8"
+                    y2="15"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="8"
+                    x2="3"
+                    y2="8"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="13"
+                    y1="8"
+                    x2="15"
+                    y2="8"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <div class="toggle-thumb"></div>
+            </button>
+          </div>
+          <button
+            class="nav-hamburger"
+            id="nav-hamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="nav-mobile-overlay"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <!-- /nav-inner -->
+    </nav>
+    <div
+      class="nav-mobile-overlay"
+      id="nav-mobile-overlay"
+      role="dialog"
+      aria-label="Mobile navigation"
+      aria-modal="true"
+    >
+      <button
+        class="nav-mobile-close"
+        id="nav-mobile-close"
+        aria-label="Close menu"
+      >
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <line
+            x1="2"
+            y1="2"
+            x2="14"
+            y2="14"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+          <line
+            x1="14"
+            y1="2"
+            x2="2"
+            y2="14"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <ul class="nav-mobile-links">
+        <li><a href="work.html">Work</a></li>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="#">Résumé ↗</a></li>
+      </ul>
+      <div class="nav-mobile-sub">
+        <a href="index.html">Home</a>
+        <a href="#">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <section id="cs-hero">
+      <!-- Left: main content -->
+      <div class="cs-hero-content">
+        <a href="index.html#work" class="hero-back-link"
+          ><svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 7H2M6 3L2 7l4 4"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Back to Work</a
+        >
+        <span class="cs-eyebrow"
+          >Case Study · Accessibility &amp; Learning · 2025</span
+        >
+        <h1 class="cs-title">
+          YuSign — Designing an <em>accessible</em> way to learn sign language
+        </h1>
+        <p class="cs-subtitle">
+          A mobile-first BSL learning app designed from day one for users with
+          low vision, deafness, motor impairment, and ADHD. Accessibility wasn't
+          a feature added at the end. It was the foundation.
+        </p>
+      </div>
+
+      <!-- Right: stats -->
+      <div class="cs-stat-row" aria-label="Project outcomes">
+        <div class="cs-stat">
+          <div class="cs-stat-num">88</div>
+          <div class="cs-stat-label">Mean SUS Score</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cs-stat-num">5/5</div>
+          <div class="cs-stat-label">Tasks Completed</div>
+        </div>
+        <div class="cs-stat">
+          <div class="cs-stat-num">7:1+</div>
+          <div class="cs-stat-label">Contrast Ratio</div>
+        </div>
+      </div>
+
+      <!-- Bottom: meta row spanning both columns -->
+      <div class="cs-meta-row" aria-label="Project details">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-value">
+            UX Designer · UI Designer · UX Researcher
+          </div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Timeline</div>
+          <div class="cs-meta-value">Jun 2025 – Aug 2025</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-value">iOS · Android · Tablet · Desktop</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Standard</div>
+          <div class="cs-meta-value highlight">WCAG 2.2 AA / AAA</div>
+        </div>
+      </div>
+    </section>
+
+    <main class="cs-body">
+      <!-- IMAGE 1: Image -->
+
+      <!-- IMAGE 1: 3 hero screens: Onboarding reason selection · Home dashboard · Learn screen showing sign v... -->
+      <div
+        class="img-placeholder tall reveal"
+        role="img"
+        aria-label="YuSign hero screens"
+      >
+        <svg
+          class="img-icon"
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="6"
+            width="22"
+            height="36"
+            rx="3"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <rect
+            x="18"
+            y="6"
+            width="22"
+            height="36"
+            rx="3"
+            stroke="currentColor"
+            stroke-width="1.5"
+            opacity=".5"
+          />
+          <rect
+            x="28"
+            y="6"
+            width="22"
+            height="36"
+            rx="3"
+            stroke="currentColor"
+            stroke-width="1.5"
+            opacity=".25"
+          />
+        </svg>
+        <div class="img-label">
+          3 hero screens: Onboarding reason selection · Home dashboard · Learn
+          screen showing sign video
+        </div>
+        <div class="img-desc">
+          Replace with the three-phone mockup from the Notion case study cover
+          image
+        </div>
+      </div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">01 · Overview</span>
+        <h2 class="cs-h2">The <em>problem</em> worth solving</h2>
+        <p class="cs-p">
+          Millions of Deaf and hard-of-hearing people face communication
+          barriers every day. At the same time, hearing people who want to learn
+          sign language find existing tools inaccessible, jargon-heavy, or
+          overwhelming.
+        </p>
+        <p class="cs-p">
+          Most sign language learning apps are built for hearing users without
+          disabilities, then retrofitted with accessibility as an afterthought.
+          <strong>YuSign set out to flip that assumption</strong> — designing a
+          BSL learning app where inclusivity shapes the product from day one,
+          not the end.
+        </p>
+        <div class="cs-pullquote">
+          <p>
+            "What if accessibility shaped the product from day one, rather than
+            being bolted on at the end?"
+          </p>
+        </div>
+        <div class="tag-row">
+          <span class="cs-tag teal">Accessibility</span
+          ><span class="cs-tag teal">WCAG 2.2</span
+          ><span class="cs-tag gold">BSL Learning</span
+          ><span class="cs-tag">Mobile-first</span
+          ><span class="cs-tag">Inclusive Design</span>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">02 · Research</span>
+        <h2 class="cs-h2">Starting with <em>people</em>, not assumptions</h2>
+        <p class="cs-p">
+          Rather than guessing who would use YuSign, I designed
+          <strong>four accessibility personas</strong> to guide every design
+          decision. Each persona represented a real set of needs grounded in
+          disability research and WCAG 2.2 success criteria.
+        </p>
+        <div class="persona-grid">
+          <div class="persona-card reveal">
+            <div class="persona-name">Aisha · Low Vision</div>
+            <div class="persona-condition">
+              Age 33 · Student · Birmingham, UK
+            </div>
+            <p class="persona-need">
+              Uses high-contrast mode and zooms to 200%. Finds cluttered
+              interfaces frustrating. Needs scalable, legible content that
+              survives magnification.
+            </p>
+            <p class="persona-quote">
+              "Faint text means I miss instructions entirely."
+            </p>
+          </div>
+          <div class="persona-card reveal reveal-d1">
+            <div class="persona-name">Priya · Cerebral Palsy</div>
+            <div class="persona-condition">
+              Age 26 · Illustrator · London, UK
+            </div>
+            <p class="persona-need">
+              Fine motor control affected. Small buttons and precision gestures
+              are frustrating. Needs large tap targets, generous spacing, and
+              switch control support.
+            </p>
+            <p class="persona-quote">
+              "Shaky motor control means small buttons are punishing."
+            </p>
+          </div>
+          <div class="persona-card reveal reveal-d2">
+            <div class="persona-name">Mateo · Deaf</div>
+            <div class="persona-condition">Age 21 · Student · London, UK</div>
+            <p class="persona-need">
+              Communicates primarily through BSL. Apps that rely on audio
+              without visual alternatives don't work for him. Needs captions,
+              text labels, and visual feedback.
+            </p>
+            <p class="persona-quote">
+              "Audio-only feedback excludes me completely."
+            </p>
+          </div>
+          <div class="persona-card reveal reveal-d3">
+            <div class="persona-name">Ben · ADHD &amp; Dyslexia</div>
+            <div class="persona-condition">
+              Age 28 · Project Manager · Manchester, UK
+            </div>
+            <p class="persona-need">
+              Sensitive to information overload. Needs uncluttered layouts,
+              predictable navigation, and chunked content to stay focused.
+            </p>
+            <p class="persona-quote">
+              "Unpredictable layouts increase my cognitive load instantly."
+            </p>
+          </div>
+        </div>
+        <p class="cs-p">
+          These four personas became the North Star. Every screen had to work
+          for all of them — if a decision helped Aisha but broke the experience
+          for Ben, it wasn't good enough.
+        </p>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">03 · Ideation</span>
+        <h2 class="cs-h2">Paper first, <em>pixels second</em></h2>
+        <p class="cs-p">
+          I started with paper sketches — messy, fast, and honest. The goal was
+          to explore how a user would learn a sign, replay it, bookmark it, take
+          a quiz, and track progress without committing to a visual direction
+          too early.
+        </p>
+        <div class="decision-list">
+          <div class="decision-item">
+            This approach surfaced problems early. Quiz layouts with multiple
+            answer options looked intimidating for Ben. The sketching phase led
+            directly to large, spaced cards with a single answer per view and
+            immediate visual feedback.
+          </div>
+        </div>
+        <div class="img-3up">
+          <!-- IMAGE 2: Splash · Welcome · Onboarding sketches -->
+          <div class="img-placeholder medium reveal" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">Splash · Welcome · Onboarding sketches</div>
+            <div class="img-desc">Paper sketch — first page</div>
+          </div>
+
+          <!-- IMAGE 3: Learn a Sign · Quiz screen sketches -->
+          <div class="img-placeholder medium reveal reveal-d1" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">Learn a Sign · Quiz screen sketches</div>
+            <div class="img-desc">Paper sketch — second page</div>
+          </div>
+
+          <!-- IMAGE 4: Onboarding flow · Home · Bookmarks -->
+          <div class="img-placeholder medium reveal reveal-d2" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">Onboarding flow · Home · Bookmarks</div>
+            <div class="img-desc">Paper sketch — third page</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">04 · Design</span>
+        <h2 class="cs-h2">Designing the <em>experience</em></h2>
+        <h3 class="cs-h3">Onboarding</h3>
+        <p class="cs-p">
+          One question per screen. No walls of text, no overwhelming choices.
+          Users tell the app why they're learning BSL, personalising their
+          experience. Returning users skip directly to home.
+        </p>
+
+        <!-- IMAGE 5: 3 onboarding screens: Welcome · Let's Get Started · Why are you learning? -->
+        <div class="img-placeholder medium reveal" role="img">
+          <svg
+            class="img-icon"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+          >
+            <rect
+              x="4"
+              y="4"
+              width="28"
+              height="28"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+          </svg>
+          <div class="img-label">
+            3 onboarding screens: Welcome · Let's Get Started · Why are you
+            learning?
+          </div>
+          <div class="img-desc">Replace with hi-fi onboarding mockup</div>
+        </div>
+        <h3 class="cs-h3">Homepage &amp; Learn Screen</h3>
+        <p class="cs-p">
+          Large cards, high contrast, and consistent bottom navigation. The
+          Learn screen features sign videos with captions, replay controls, a
+          slow-sign option, and text descriptions. Every interaction has visual
+          and textual feedback — no audio-only cues.
+        </p>
+        <div class="img-2up">
+          <!-- IMAGE 6: Homepage dashboard -->
+          <div class="img-placeholder medium reveal" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">Homepage dashboard</div>
+            <div class="img-desc">Hi-fi home screen mockup</div>
+          </div>
+
+          <!-- IMAGE 7: Learn screen with sign video and captions -->
+          <div class="img-placeholder medium reveal reveal-d1" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">
+              Learn screen with sign video and captions
+            </div>
+            <div class="img-desc">Hi-fi learn screen mockup</div>
+          </div>
+        </div>
+        <h3 class="cs-h3">Quiz</h3>
+        <p class="cs-p">
+          Large cards, instant "Correct! Well done!" feedback, and a clear next
+          action. Four quiz formats (text, image, matching) keep engagement
+          varied without overwhelming users.
+        </p>
+
+        <!-- IMAGE 8: 3 quiz screens: Question · Correct feedback · Matching format -->
+        <div class="img-placeholder medium reveal" role="img">
+          <svg
+            class="img-icon"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+          >
+            <rect
+              x="4"
+              y="4"
+              width="28"
+              height="28"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+          </svg>
+          <div class="img-label">
+            3 quiz screens: Question · Correct feedback · Matching format
+          </div>
+          <div class="img-desc">Hi-fi quiz mockup</div>
+        </div>
+        <h3 class="cs-h3">Bookmarks &amp; Search</h3>
+        <p class="cs-p">
+          Confirmation modals prevent accidental actions — a direct response to
+          Priya's motor impairment and Ben's tendency to mis-tap. Search
+          supports predictive results by category.
+        </p>
+        <div class="img-2up">
+          <!-- IMAGE 9: Bookmarks with Add and Remove modals -->
+          <div class="img-placeholder medium reveal" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">Bookmarks with Add and Remove modals</div>
+            <div class="img-desc">Hi-fi bookmarks mockup</div>
+          </div>
+
+          <!-- IMAGE 10: Search: empty · predictive · results -->
+          <div class="img-placeholder medium reveal reveal-d1" role="img">
+            <svg
+              class="img-icon"
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="4"
+                width="28"
+                height="28"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.4"
+              />
+            </svg>
+            <div class="img-label">Search: empty · predictive · results</div>
+            <div class="img-desc">Hi-fi search mockup</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">05 · Accessibility</span>
+        <h2 class="cs-h2">WCAG 2.2 — <em>every decision</em> mapped back</h2>
+        <p class="cs-p">
+          Every design choice was mapped back to a WCAG 2.2 criterion and one of
+          the four personas. Accessibility wasn't a checklist at the end — it
+          was the design rationale throughout.
+        </p>
+        <div class="tl-list">
+          <div class="tl-item reveal">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                />
+                <line
+                  x1="6"
+                  y1="5"
+                  x2="6"
+                  y2="9"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                />
+                <circle cx="6" cy="3.5" r=".6" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">1.4.6 · AAA — Contrast Enhanced</div>
+              <div class="tl-desc">
+                All text achieves at least 7:1 contrast. For Aisha (low vision),
+                faint text could mean missing instructions entirely. Verified
+                with Figma contrast plugin on every screen.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d1">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                />
+                <line
+                  x1="6"
+                  y1="5"
+                  x2="6"
+                  y2="9"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                />
+                <circle cx="6" cy="3.5" r=".6" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">2.5.5 · AAA — Target Size Enhanced</div>
+              <div class="tl-desc">
+                All buttons and cards at minimum 44×44px. For Priya (cerebral
+                palsy), larger tap areas made the app forgiving of shaky motor
+                control.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d2">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                />
+                <line
+                  x1="6"
+                  y1="5"
+                  x2="6"
+                  y2="9"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                />
+                <circle cx="6" cy="3.5" r=".6" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">1.2.2 · AA — Captions</div>
+              <div class="tl-desc">
+                All sign videos include text labels and captions. For Mateo
+                (Deaf), he could follow lessons independently without relying on
+                audio.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d3">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                />
+                <line
+                  x1="6"
+                  y1="5"
+                  x2="6"
+                  y2="9"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                />
+                <circle cx="6" cy="3.5" r=".6" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">3.2.3 · AA — Consistent Navigation</div>
+              <div class="tl-desc">
+                Bottom nav placed identically across all screens. For Ben
+                (ADHD/dyslexia), consistency reduced disorientation and helped
+                him build a mental map of the app quickly.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                />
+                <line
+                  x1="6"
+                  y1="5"
+                  x2="6"
+                  y2="9"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                />
+                <circle cx="6" cy="3.5" r=".6" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">2.4.7 · AA — Focus Visible</div>
+              <div class="tl-desc">
+                All interactive elements show a clear focus ring. For Priya,
+                using a switch device required visible, predictable focus
+                management throughout the entire flow.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d1">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="5"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                />
+                <line
+                  x1="6"
+                  y1="5"
+                  x2="6"
+                  y2="9"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                />
+                <circle cx="6" cy="3.5" r=".6" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">1.3.3 · A — Sensory Characteristics</div>
+              <div class="tl-desc">
+                Instructions never rely on shape, colour, or position alone. For
+                Mateo and Aisha, every affordance has a text equivalent or label
+                so nothing is missed.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">06 · Scaling</span>
+        <h2 class="cs-h2">One product, <em>every device</em></h2>
+        <p class="cs-p">
+          Once the mobile flow was solid, YuSign was adapted for iPad and
+          desktop. The design remained consistent with no surprises for users
+          switching devices.
+        </p>
+        <div class="cs-stats-inline">
+          <div class="cs-stat-box">
+            <div class="num">Mobile</div>
+            <div class="lbl">
+              Single-column, large tap targets, portrait-first
+            </div>
+          </div>
+          <div class="cs-stat-box">
+            <div class="num">Tablet</div>
+            <div class="lbl">
+              Larger grids, increased spacing, landscape-friendly
+            </div>
+          </div>
+          <div class="cs-stat-box">
+            <div class="num">Desktop</div>
+            <div class="lbl">
+              Keyboard focus rings, tab order, expanded content area
+            </div>
+          </div>
+        </div>
+
+        <!-- IMAGE 11: YuSign on iPad landscape — adapted layout -->
+        <div class="img-placeholder medium reveal" role="img">
+          <svg
+            class="img-icon"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+          >
+            <rect
+              x="4"
+              y="4"
+              width="28"
+              height="28"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+          </svg>
+          <div class="img-label">YuSign on iPad landscape — adapted layout</div>
+          <div class="img-desc">Replace with tablet mockup</div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">07 · Testing</span>
+        <h2 class="cs-h2">Testing with <em>real people</em></h2>
+        <p class="cs-p">
+          YuSign was tested with <strong>five participants</strong>, none with
+          prior BSL experience. Each completed tasks covering onboarding,
+          learning a sign, bookmarking, taking a quiz, searching, and checking
+          progress. After tasks, participants rated the app using the
+          <strong>System Usability Scale (SUS)</strong>.
+        </p>
+        <div class="tl-list">
+          <div class="tl-item reveal">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M2 6l3 3 5-5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Onboarding</div>
+              <div class="tl-desc">
+                Create account and complete the BSL level assessment. All 5
+                participants completed without assistance.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d1">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M2 6l3 3 5-5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Learn a sign</div>
+              <div class="tl-desc">
+                Navigate to and watch a lesson video to completion. 5/5 success
+                — most used the repeat feature unprompted.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d2">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M2 6l3 3 5-5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Bookmark and quiz</div>
+              <div class="tl-desc">
+                Save a sign and take a quiz on recently learned content. 4/5
+                completed; one user initially missed the bookmark icon.
+              </div>
+            </div>
+          </div>
+          <div class="tl-item reveal reveal-d3">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
+                <path
+                  d="M2 6l3 3 5-5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Search and progress</div>
+              <div class="tl-desc">
+                Use search to find a specific sign and locate the progress
+                dashboard. 5/5 completed — progress view was described as
+                motivating.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="results-grid">
+          <div class="result-card reveal">
+            <div class="r-num">88</div>
+            <div class="r-desc">
+              Mean SUS score — classified as
+              <strong>Excellent usability</strong> (above the 85 threshold)
+            </div>
+          </div>
+          <div class="result-card reveal reveal-d1">
+            <div class="r-num">75–100</div>
+            <div class="r-desc">
+              SUS range across all five participants — no one scored below Good
+            </div>
+          </div>
+          <div class="result-card reveal reveal-d2">
+            <div class="r-num">5/5</div>
+            <div class="r-desc">
+              Participants completed all tasks with no critical blockers
+            </div>
+          </div>
+          <div class="result-card reveal reveal-d3">
+            <div class="r-num">"Simple"</div>
+            <div class="r-desc">
+              Participants described the app as <em>"simple"</em>,
+              <em>"easy to use"</em>, and <em>"accessible"</em>
+            </div>
+          </div>
+        </div>
+        <div class="iteration-box reveal">
+          <h4>One participant with ADHD directly validated the design</h4>
+          <p>
+            "The uncluttered design helped me focus" — a direct confirmation
+            that decisions made for Ben's persona had real-world impact on a
+            user who shared those characteristics.
+          </p>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">08 · Iteration</span>
+        <h2 class="cs-h2">What didn't work — and <em>how I fixed it</em></h2>
+        <p class="cs-p">
+          On the onboarding screen,
+          <strong>3 out of 5 participants</strong> confused the summary boxes
+          for tappable buttons and tapped them instead of the real CTA. A clear
+          affordance problem.
+        </p>
+        <div class="iteration-box reveal">
+          <h4>The problem</h4>
+          <p>
+            Summary feature boxes on "Let's Get Started" looked like tappable
+            cards. Users expected them to do something — missing the actual
+            "Next" button.
+          </p>
+        </div>
+        <p class="cs-p">
+          I converted the summary boxes into plain content blocks without
+          card-style borders, and made the "Next" button the single unmistakably
+          primary interactive element.
+        </p>
+        <div class="before-after reveal">
+          <div>
+            <!-- IMAGE 12: Image -->
+
+            <!-- IMAGE 12: Before: card-style boxes that look tappable -->
+            <div class="img-placeholder medium" role="img">
+              <svg
+                class="img-icon"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="26"
+                  height="26"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+              <div class="img-label">
+                Before: card-style boxes that look tappable
+              </div>
+            </div>
+            <div class="ba-label before">Before</div>
+          </div>
+          <div>
+            <!-- IMAGE 13: Image -->
+
+            <!-- IMAGE 13: After: plain blocks, single clear "Next" CTA -->
+            <div class="img-placeholder medium" role="img">
+              <svg
+                class="img-icon"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="26"
+                  height="26"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+              <div class="img-label">
+                After: plain blocks, single clear "Next" CTA
+              </div>
+            </div>
+            <div class="ba-label after">After</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">09 · Impact</span>
+        <h2 class="cs-h2">What <em>YuSign</em> proved</h2>
+        <div class="cs-pullquote">
+          <p>
+            "Designing inclusively from the start is both practical and
+            powerful."
+          </p>
+        </div>
+        <p class="cs-p">
+          YuSign demonstrated that accessibility-first design doesn't mean
+          compromising on quality — it means building something that genuinely
+          works for more people.
+        </p>
+        <div class="cs-stats-inline">
+          <div class="cs-stat-box">
+            <div class="num" style="font-size: 1.1rem">Accessible</div>
+            <div class="lbl">By default, not patched later</div>
+          </div>
+          <div class="cs-stat-box">
+            <div class="num" style="font-size: 1.1rem">SUS 88</div>
+            <div class="lbl">Rated highly usable by test participants</div>
+          </div>
+          <div class="cs-stat-box">
+            <div class="num" style="font-size: 1.1rem">4 profiles</div>
+            <div class="lbl">
+              Inclusive across low vision, deafness, motor &amp; ADHD
+            </div>
+          </div>
+        </div>
+        <h3 class="cs-h3">Reflection</h3>
+        <p class="cs-p">
+          This project reinforced that accessibility isn't just a checklist.
+          It's about empathy, anticipation, and designing for real human
+          diversity. By focusing on people first, YuSign became more than a sign
+          language app — it became a proof of concept for what inclusive design
+          can achieve.
+        </p>
+        <p class="cs-p">
+          The most meaningful validation came not from the SUS score, but from
+          the participant with ADHD who said the uncluttered design helped them
+          focus. That's the kind of outcome that matters.
+        </p>
+      </div>
+    </main>
+
+    <div class="cs-nav-footer">
+      <a href="casestudy-designsystem.html" class="cs-nav-link"
+        ><div class="cs-nav-dir">← Previous</div>
+        <div class="cs-nav-label">Design System</div></a
+      >
+      <a href="casestudy-buffbuddy.html" class="cs-nav-link cs-nav-next"
+        ><div class="cs-nav-dir">Next →</div>
+        <div class="cs-nav-label">BuffBuddy</div></a
+      >
+    </div>
+    <footer>
+      <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="work.html">Work</a>
+        <a href="writing.html">Writing</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#process">Process</a>
+        <a href="#">Résumé ↗</a>
+      </nav>
+    </footer>
+    <script>
+      // NAV SCROLL
+      const mainNav = document.getElementById("main-nav");
+      if (mainNav)
+        window.addEventListener(
+          "scroll",
+          () => {
+            mainNav.classList.toggle("scrolled", scrollY > 60);
+          },
+          { passive: true },
+        );
+      // CURSOR
+      const cursorEl = document.getElementById("cursor");
+      if (cursorEl) {
+        const dot = cursorEl.querySelector(".dot"),
+          ring = cursorEl.querySelector(".ring");
+        let mx = -200,
+          my = -200,
+          rx = -200,
+          ry = -200,
+          moved = false;
+        dot.style.opacity = "0";
+        ring.style.opacity = "0";
+        document.addEventListener("mousemove", function (e) {
+          mx = e.clientX;
+          my = e.clientY;
+          cursorEl.style.left = mx + "px";
+          cursorEl.style.top = my + "px";
+          if (!moved) {
+            moved = true;
+            dot.style.opacity = "1";
+            ring.style.opacity = ".5";
+            rx = mx;
+            ry = my;
+          }
+        });
+        ring.style.position = "fixed";
+        ring.style.pointerEvents = "none";
+        (function loop() {
+          rx += (mx - rx) * 0.35;
+          ry += (my - ry) * 0.35;
+          ring.style.left = rx + "px";
+          ring.style.top = ry + "px";
+          requestAnimationFrame(loop);
+        })();
+        if ("ontouchstart" in window) {
+          document.body.style.cursor = "auto";
+          cursorEl.style.display = "none";
+        }
+      }
+
+      // THEME
+      const htmlEl = document.documentElement;
+      function applyTheme(t) {
+        htmlEl.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        const lbl = document.getElementById("toggle-label");
+        if (lbl) lbl.textContent = t === "dark" ? "Dark Mode" : "Light Mode";
+      }
+      function toggleTheme() {
+        applyTheme(
+          htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark",
+        );
+      }
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const sys = window.matchMedia("(prefers-color-scheme:dark)").matches;
+        applyTheme(stored || (sys ? "dark" : "light"));
+      })();
+      const themeBtn = document.getElementById("theme-toggle");
+      if (themeBtn) {
+        themeBtn.style.cursor = "pointer";
+        themeBtn.addEventListener("click", toggleTheme);
+        themeBtn.addEventListener("touchend", function (e) {
+          e.preventDefault();
+          toggleTheme();
+        });
+      }
+      // Also wire toggle-wrap clicks for easier hit area
+      const toggleWrap = document.querySelector(".toggle-wrap");
+      if (toggleWrap) {
+        toggleWrap.style.cursor = "pointer";
+      }
+      // REVEAL
+      const revealObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              revealObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.05 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObs.observe(el));
+      // SMOOTH SCROLL
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href").slice(1);
+          const el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // HAMBURGER
+      const hamburger = document.getElementById("nav-hamburger");
+      const mobileOverlay = document.getElementById("nav-mobile-overlay");
+      const mobileClose = document.getElementById("nav-mobile-close");
+      function openMenu() {
+        mobileOverlay.classList.add("open");
+        hamburger.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+      function closeMenu() {
+        mobileOverlay.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+      if (hamburger && mobileOverlay) {
+        hamburger.addEventListener("click", openMenu);
+        if (mobileClose) mobileClose.addEventListener("click", closeMenu);
+        mobileOverlay.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", closeMenu);
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeMenu();
+        });
+      }
+    </script>
+  </body>
+</html>

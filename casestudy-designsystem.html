@@ -1026,7 +1026,7 @@
         line-height: 1.2;
         transition: color 0.25s;
       }
-      .cs-nav-link:hover .cs-nav-label {
+      .cs-nav-label {
         color: var(--indigo);
       }
       [data-theme="light"] .cs-nav-footer {
@@ -1041,21 +1041,8 @@
       [data-theme="light"] .cs-nav-dir {
         color: #3730a3;
       }
-      [data-theme="light"] .cs-nav-link:hover .cs-nav-label {
+      [data-theme="light"] .cs-nav-label {
         color: #3730a3;
-      }
-      @media (max-width: 600px) {
-        .cs-nav-link {
-          padding: 1.5rem 1.4rem;
-        }
-        .cs-nav-footer {
-          flex-direction: column;
-        }
-        .cs-nav-next {
-          border-left: none;
-          border-top: 1px solid var(--border);
-          text-align: left;
-        }
       }
       footer {
         background: var(--bg);
@@ -2031,10 +2018,6 @@
     </main>
 
     <div class="cs-nav-footer">
-      <a href="casestudy-viro.html" class="cs-nav-link"
-        ><div class="cs-nav-dir">← Previous</div>
-        <div class="cs-nav-label">Viro</div></a
-      >
       <a href="casestudy-yusign.html" class="cs-nav-link cs-nav-next"
         ><div class="cs-nav-dir">Next →</div>
         <div class="cs-nav-label">YuSign</div></a

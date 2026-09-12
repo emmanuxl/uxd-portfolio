@@ -1377,8 +1377,8 @@
       }
       .cs-nav-
 
-      /* Readability improvements */
-      .cs-p {
+/* Readability improvements */
+.cs-p {
         font-size: 0.88rem;
         color: var(--muted);
         line-height: 2.05;
@@ -1673,11 +1673,6 @@
       }
       /* ── PAGE FOOTER ── */
 
-      @media (max-width: 680px) {
-      }
-
-      @media (max-width: 680px) {
-      }
       .iteration-box {
         background: var(--indigo-subtle);
         border-left: 3px solid var(--indigo);
@@ -1752,13 +1747,7 @@
         margin-top: 0.15rem;
       }
 
-      @media (max-width: 600px) {
-      }
-
-      @media (max-width: 600px) {
-      }
-
-      .cs-stats-inline {
+      [data-theme="light"] .cs-stats-inline {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
@@ -1790,14 +1779,6 @@
         letter-spacing: 0.08em;
         color: var(--muted);
         line-height: 1.5;
-      }
-      @media (max-width: 600px) {
-        .cs-stats-inline {
-          flex-direction: column;
-        }
-        .cs-stat-box {
-          min-width: 100%;
-        }
       }
       .cs-nav-footer {
         display: flex;
@@ -1841,7 +1822,7 @@
         line-height: 1.2;
         transition: color 0.25s;
       }
-      .cs-nav-link:hover .cs-nav-label {
+      .cs-nav-label {
         color: var(--indigo);
       }
       [data-theme="light"] .cs-nav-footer {
@@ -1856,21 +1837,8 @@
       [data-theme="light"] .cs-nav-dir {
         color: #3730a3;
       }
-      [data-theme="light"] .cs-nav-link:hover .cs-nav-label {
+      [data-theme="light"] .cs-nav-label {
         color: #3730a3;
-      }
-      @media (max-width: 600px) {
-        .cs-nav-link {
-          padding: 1.5rem 1.4rem;
-        }
-        .cs-nav-footer {
-          flex-direction: column;
-        }
-        .cs-nav-next {
-          border-left: none;
-          border-top: 1px solid var(--border);
-          text-align: left;
-        }
       }
       footer {
         background: var(--bg);
@@ -1915,19 +1883,6 @@
       }
       [data-theme="light"] .footer-links a:hover {
         color: #1c1c1c;
-      }
-      @media (max-width: 680px) {
-        footer {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          padding: 1.4rem 1.2rem;
-          text-align: center;
-        }
-        .footer-links {
-          justify-content: center;
-          gap: 0.6rem 1.2rem;
-        }
       }
 
       @media (min-width: 1280px) {

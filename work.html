@@ -441,6 +441,142 @@
           color: #1c1c1c !important;
         }
       }
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 100px 4rem 5rem;
+      }
+      .page-eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .page-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 3.8vw, 4rem);
+        font-weight: 300;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.8rem;
+      }
+      .page-title em {
+        font-style: italic;
+        color: var(--indigo);
+      }
+      .page-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.85;
+        max-width: 520px;
+        margin-bottom: 3.5rem;
+      }
+      .work-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .work-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--border);
+        text-decoration: none;
+        transition: border-color 0.25s;
+      }
+      .work-item:first-child {
+        border-top: 1px solid var(--border);
+      }
+      .work-item:hover {
+        border-color: var(--indigo-border);
+      }
+      .work-item:hover .work-arrow {
+        opacity: 1;
+        transform: translateX(4px);
+      }
+      .work-item:hover .work-title {
+        color: var(--indigo);
+      }
+      .work-meta {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 0.5rem;
+      }
+      .work-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--ink);
+        line-height: 1.25;
+        margin-bottom: 0.5rem;
+        transition: color 0.25s;
+      }
+      .work-desc {
+        font-size: 0.84rem;
+        color: var(--muted);
+        line-height: 1.85;
+        max-width: 620px;
+      }
+      .work-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 0.3rem;
+        flex-shrink: 0;
+      }
+      .work-ongoing,
+      .work-year {
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .work-ongoing {
+        color: var(--teal);
+        border: 1px solid var(--teal-border);
+        border-radius: 100px;
+        padding: 0.15rem 0.6rem;
+      }
+      .work-year {
+        color: var(--muted);
+      }
+      .work-arrow {
+        font-size: 1rem;
+        color: var(--indigo);
+        opacity: 0;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        flex-shrink: 0;
+      }
+      @media (max-width: 900px) {
+        .page {
+          padding: 80px 1.4rem 4rem;
+        }
+        .work-item {
+          padding: 1.6rem 0;
+        }
+      }
+      @media (max-width: 600px) {
+        .page {
+          padding: 88px 1.2rem 3rem;
+        }
+        .work-item {
+          grid-template-columns: 1fr;
+          gap: 0.7rem;
+        }
+        .work-right {
+          padding-top: 0;
+        }
+        .work-arrow {
+          opacity: 1;
+        }
+      }
       footer {
         background: var(--bg);
         border-top: 1px solid var(--border);
@@ -630,9 +766,9 @@
       <span class="page-eyebrow reveal">Selected Projects</span>
       <h1 class="page-title reveal">Design work that <em>matters</em></h1>
       <p class="page-sub reveal">
-        End-to-end UX across accessibility, fitness, waste management, fashion,
-        and immersive tech. Research-led, inclusion-first, built around how
-        people actually use things.
+        End-to-end UX across accessibility, fitness, fashion, and immersive
+        tech. Research-led, inclusion-first, built around how people actually
+        use things.
       </p>
       <nav class="work-list" aria-label="Case studies">
         <a href="casestudy-passa.html" class="work-item reveal">

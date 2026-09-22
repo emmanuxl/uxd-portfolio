@@ -2684,11 +2684,13 @@
         <h3 class="cs-h3">Fill opacity detection</h3>
         <p class="cs-p">
           A text layer with 60% fill opacity renders as a lighter colour than
-          its hex value alone suggests. Passa blends the fill against the
-          detected background before computing the ratio, so the displayed
-          result reflects what the eye actually sees. When suggestions are
-          approximate due to opacity, the plugin surfaces a warning rather than
-          silently providing an incorrect value.
+          its hex value alone suggests. Passa reads the fill's opacity and
+          blends it against the detected background before computing the
+          contrast ratio, so the result reflects what is actually visible on
+          screen. For suggestions, Passa finds the fill hex that when rendered
+          at the existing opacity, achieves the target contrast ratio. The
+          suggested colour can be applied directly to the fill without adjusting
+          the opacity.
         </p>
         <h3 class="cs-h3">Background detection</h3>
         <p class="cs-p">
@@ -2723,10 +2725,10 @@
             <div class="decision-label">Mode 02</div>
             <div class="decision-title">Scan mode</div>
             <div class="decision-desc">
-              Scanning a frame or full page produces a filterable list of every
-              failing layer. Filter chips (AA fails / AAA-only fails / All) show
-              live counts that update as fixes are applied — giving the designer
-              a real-time sense of progress.
+              Scanning a frame produces a filterable list of every failing
+              layer. Filter chips (AA fails / AAA-only fails / All) show live
+              counts that update as fixes are applied — giving the designer a
+              real-time sense of progress.
             </div>
           </div>
         </div>

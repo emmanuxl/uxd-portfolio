@@ -565,6 +565,39 @@
         opacity: 0;
         animation: fadeUp 0.8s 0.65s forwards;
       }
+      .cs-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.8s forwards;
+      }
+      .cs-cta {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.85rem 2.2rem;
+        border: 1px solid var(--border2);
+        border-radius: 2px;
+        background: transparent;
+        color: var(--muted);
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          transform 0.2s;
+        white-space: nowrap;
+      }
+      .cs-cta:hover {
+        background: var(--indigo-subtle);
+        border-color: var(--indigo);
+        color: var(--indigo);
+        transform: translateY(-2px);
+      }
       @keyframes fadeUp {
         from {
           opacity: 0;
@@ -693,6 +726,55 @@
         font-size: 0.65rem;
         color: var(--indigo);
         opacity: 0.5;
+      }
+      .video-placeholder {
+        min-height: 280px;
+        padding: 2rem;
+        background: var(--bg3);
+        border: 1px dashed var(--indigo-border);
+        border-radius: var(--r);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+      .video-placeholder svg {
+        width: 38px;
+        height: 38px;
+        color: var(--indigo);
+        opacity: 0.8;
+      }
+      .video-placeholder strong {
+        color: var(--ink);
+        font-family: "Syne", sans-serif;
+        font-size: 0.82rem;
+      }
+      .video-placeholder span {
+        max-width: 440px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        line-height: 1.7;
+      }
+      .passa-video {
+        margin: 2rem 0;
+      }
+      .passa-video video {
+        display: block;
+        width: 100%;
+        max-height: 620px;
+        object-fit: contain;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+      }
+      .passa-video figcaption {
+        margin-top: 0.7rem;
+        color: var(--muted);
+        font-size: 0.68rem;
+        line-height: 1.6;
       }
       .tl-list {
         display: flex;
@@ -1324,6 +1406,16 @@
           click — with a full undo stack. Everything stays inside Figma, with no
           context switching required.
         </p>
+        <div class="cs-cta-row">
+          <a
+            class="cs-cta"
+            href="https://www.figma.com/community/plugin/1624221735207892269"
+            target="_blank"
+            rel="noopener"
+          >
+            Open Passa in Figma ↗
+          </a>
+        </div>
         <div class="cs-stats-inline">
           <div class="cs-stat-box">
             <div class="num">WCAG 2.2</div>
@@ -1347,13 +1439,29 @@
 
         <figure class="reveal" style="margin: 3rem 0">
           <img
-            src="passa-img1-hero-overview.svg"
+            src="media/passa/overview.png"
             alt="Passa plugin panel in welcome and scan states"
             class="img-wide"
           />
           <figcaption>
-            Plugin panel — welcome state (left) and after scanning a frame with
-            18 AA failures (right)
+            Plugin panel — welcome state (left) and scan view (right) showing
+            failing text layers, AA/AAA status, and available fixes
+          </figcaption>
+        </figure>
+        <figure class="passa-video reveal">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="media/passa/posters/passa-workflow.png"
+            aria-label="Passa workflow demonstration"
+          >
+            <source src="media/passa/passa-workflow.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            Workflow demonstration — selecting a frame, finding contrast
+            failures, applying a suggested fix, and undoing the change.
           </figcaption>
         </figure>
       </div>
@@ -2735,13 +2843,13 @@
 
         <figure class="reveal" style="margin: 4rem 0">
           <img
-            src="passa-img4-single-layer.svg"
-            alt="Single text layer check — ratio 3.49:1 failing AA and AAA with suggestions"
+            src="media/passa/single-layer.png"
+            alt="Passa single-text check showing contrast status and suggested fixes"
             class="img-wide"
           />
           <figcaption>
-            Single text mode — real-time ratio, fail status, and AA + AAA
-            suggestions in one view
+            Single-text mode — current contrast ratio, AA/AAA status, and
+            suggested text and background fixes in one view
           </figcaption>
         </figure>
 
@@ -2750,13 +2858,13 @@
         />
         <figure class="reveal" style="margin: 5rem 0">
           <img
-            src="passa-img5-before-after.svg"
-            alt="Before and after frame scan showing Passa detecting and fixing contrast failures"
+            src="media/passa/before-after.png"
+            alt="Before and after frame scan showing Passa fixing contrast failures"
             class="img-full"
           />
           <figcaption>
-            Frame scan — 18 AA failures surfaced simultaneously. Fixes apply per
-            layer or in bulk.
+            Before and after a fix — failing layers are corrected and the panel
+            confirms passing AA/AAA results
           </figcaption>
         </figure>
 
@@ -2765,13 +2873,13 @@
         />
         <figure class="reveal" style="margin: 4rem 0">
           <img
-            src="passa-img6-slider.svg"
-            alt="Manual lightness slider with AA and AAA threshold markers"
+            src="media/passa/slider.png"
+            alt="Passa manual lightness adjustment with AA and AAA threshold markers"
             class="img-narrow"
           />
           <figcaption>
-            Manual slider — AA/AAA thresholds marked on track, ratio updates
-            live on drag
+            Manual lightness adjustment — change a suggested colour while
+            watching the contrast ratio update against AA/AAA thresholds
           </figcaption>
         </figure>
       </div>
@@ -2886,7 +2994,42 @@
       <div class="cs-divider"></div>
 
       <div class="cs-section reveal">
-        <span class="cs-section-tag">08 · Outcomes</span>
+        <span class="cs-section-tag">08 · Audit Report</span>
+        <h2 class="cs-h2">From scan results to a <em>shareable record</em></h2>
+        <p class="cs-p">
+          Passa can generate a Figma frame documenting the scan results. The
+          report gives developers a clear record of failing layers, contrast
+          ratios, WCAG status, and the suggested direction for correction,
+          without requiring them to open the plugin themselves.
+        </p>
+        <figure class="passa-video reveal">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="media/passa/posters/passa-audit-report.png"
+            aria-label="Passa audit report demonstration"
+          >
+            <source src="media/passa/passa-audit-report.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            Audit report demonstration — exporting scan results into a Figma
+            frame ready to share with developers.
+          </figcaption>
+        </figure>
+        <div class="cs-pullquote reveal">
+          <p>
+            One report turns a list of failures into a shared implementation
+            brief.
+          </p>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">09 · Outcomes</span>
         <h2 class="cs-h2">What <em>shipped</em></h2>
         <div class="results-grid">
           <div class="result-card reveal">
@@ -2924,6 +3067,16 @@
             be accessible."
           </p>
         </div>
+        <div class="cs-cta-row">
+          <a
+            class="cs-cta"
+            href="https://www.figma.com/community/plugin/1624221735207892269"
+            target="_blank"
+            rel="noopener"
+          >
+            Try Passa in Figma ↗
+          </a>
+        </div>
       </div>
     </main>
 
@@ -2931,6 +3084,9 @@
       <a href="index.html#work" class="cs-nav-link"
         ><div class="cs-nav-dir">← All Work</div>
         <div class="cs-nav-label">All Work</div></a
+      ><a href="casestudy-designsystem.html" class="cs-nav-link cs-nav-next"
+        ><div class="cs-nav-dir">Next →</div>
+        <div class="cs-nav-label">Design System</div></a
       >
     </div>
     <footer>

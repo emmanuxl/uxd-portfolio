@@ -3,7 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Design System — Case Study · Emmanuel Edigbe</title>
+    <title>Portfolio Design System · Case Study — Emmanuel Edigbe</title>
+    <meta
+      name="description"
+      content="The token layer, type scale, components and accessibility rationale behind this portfolio, documented as a case study."
+    />
+    <meta name="theme-color" content="#1c1c1c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:site_name" content="Emmanuel Edigbe" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Portfolio Design System · Case Study — Emmanuel Edigbe"
+    />
+    <meta
+      property="og:description"
+      content="The token layer, type scale, components and accessibility rationale behind this portfolio, documented as a case study."
+    />
+    <meta property="og:image" content="media/og/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Emmanuel Edigbe — UX designer portfolio"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Portfolio Design System · Case Study — Emmanuel Edigbe"
+    />
+    <meta
+      name="twitter:description"
+      content="The token layer, type scale, components and accessibility rationale behind this portfolio, documented as a case study."
+    />
+    <meta name="twitter:image" content="media/og/og-card.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -1200,7 +1236,11 @@
           <li><a href="writing.html">Writing</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#process">Process</a></li>
-          <li><a href="#">Résumé ↗</a></li>
+          <li>
+            <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+              >Résumé ↗</a
+            >
+          </li>
         </ul>
         <div class="nav-right">
           <div class="toggle-wrap">
@@ -1325,20 +1365,27 @@
         <li><a href="writing.html">Writing</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="#">Résumé ↗</a></li>
+        <li>
+          <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
+        </li>
       </ul>
       <div class="nav-mobile-sub">
         <a href="index.html">Home</a>
-        <a href="#">LinkedIn ↗</a>
+        <a
+          href="https://linkedin.com/in/emmanueledigbe"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
       </div>
     </div>
 
     <section id="cs-hero">
       <div class="cs-hero-content">
-        <a href="index.html#work" class="hero-back-link">← All Work</a>
-        <span class="cs-eyebrow"
-          >Design Systems · Tokens · Accessibility · Solo</span
-        >
+        <a href="work.html" class="hero-back-link">← Back to Work</a>
+        <span class="cs-eyebrow">Case Study · Design Systems · 2026</span>
         <h1 class="cs-title">
           Portfolio Design System — <em>built in public</em>
         </h1>
@@ -1358,8 +1405,8 @@
           <div class="cs-stat-label">Full colour modes</div>
         </div>
         <div class="cs-stat">
-          <div class="cs-stat-num">9</div>
-          <div class="cs-stat-label">Pages, zero duplication</div>
+          <div class="cs-stat-num">13</div>
+          <div class="cs-stat-label">Pages, one shared system</div>
         </div>
       </div>
       <div class="cs-meta-row">
@@ -1395,12 +1442,12 @@
           systems design, not just screen design.
         </p>
         <p class="cs-p">
-          The system serves nine pages: a homepage, a work index, three writing
-          pages, and five case studies. Each page shares identical nav, footer,
-          theme toggle, and reveal animation behaviour — without a single line
-          of duplicated CSS. The token layer makes both dark and light mode work
-          correctly across every component with zero mode-specific overrides in
-          page-level CSS.
+          The system serves thirteen pages: a homepage, a work index, a writing
+          index, three articles, and seven case studies. Each page shares the
+          same nav, footer, theme toggle, and reveal animation behaviour, built
+          from one copied token block and component set. The token layer makes
+          both dark and light mode work across every component, with only a
+          small number of mode-specific overrides.
         </p>
         <div class="cs-pullquote">
           <p>
@@ -1894,7 +1941,7 @@
 
       <div class="cs-section reveal">
         <span class="cs-section-tag">06 · Architecture</span>
-        <h2 class="cs-h2">Nine pages, one <em>shared language</em></h2>
+        <h2 class="cs-h2">Thirteen pages, one <em>shared language</em></h2>
         <p class="cs-p">
           No build tools, no preprocessors, no framework. The system is
           implemented in vanilla HTML, CSS, and JavaScript — a deliberate choice
@@ -1945,32 +1992,104 @@
             </div>
           </div>
         </div>
-
-        <!-- IMAGE 1: Site architecture diagram — 9 pages, shared CSS token layer, JS module, component inventor... -->
-        <div class="img-placeholder medium reveal" role="img">
-          <svg
-            class="img-icon"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
-          >
-            <rect
-              x="4"
-              y="4"
-              width="28"
-              height="28"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.4"
-            />
-          </svg>
-          <div class="img-label">
-            Site architecture diagram — 9 pages, shared CSS token layer, JS
-            module, component inventory
+        <figure class="arch-map reveal" aria-label="Site architecture">
+          <div class="am-layer am-top">
+            <span class="am-tag">Token layer</span>CSS custom properties —
+            colour, type, spacing, radius · dark and light modes
           </div>
-          <div class="img-desc">Replace with architecture diagram</div>
-        </div>
+          <div class="am-layer am-mid">
+            <span class="am-tag">Behaviour</span>Theme toggle + localStorage ·
+            nav scroll state · IntersectionObserver reveals · mobile menu
+          </div>
+          <div class="am-cols">
+            <div class="am-col">
+              <div class="am-col-h">Core · 3</div>
+              <span>Home</span><span>Work</span><span>Writing</span>
+            </div>
+            <div class="am-col">
+              <div class="am-col-h">Articles · 3</div>
+              <span>Emotional design</span><span>Accessibility first</span
+              ><span>No conventions</span>
+            </div>
+            <div class="am-col">
+              <div class="am-col-h">Case studies · 7</div>
+              <span>Passa</span><span>Design System</span><span>YuSign</span
+              ><span>BuffBuddy</span><span>Immerseum</span><span>Connex</span
+              ><span>Lume</span>
+            </div>
+          </div>
+          <figcaption>
+            One token block and one component set, reused across thirteen static
+            pages
+          </figcaption>
+        </figure>
+        <style>
+          .arch-map {
+            margin: 2rem 0;
+          }
+          .am-layer {
+            border: 1px solid var(--border2);
+            border-radius: var(--r);
+            padding: 1rem 1.2rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+            background: var(--bg3);
+          }
+          .am-top {
+            border-color: var(--indigo-border);
+            background: var(--indigo-subtle);
+          }
+          .am-mid {
+            border-color: var(--teal-border);
+            background: var(--teal-subtle);
+          }
+          .am-tag {
+            display: block;
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+          }
+          .am-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+          }
+          .am-col {
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 1rem;
+            background: var(--bg2);
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            font-size: 0.75rem;
+            color: var(--muted);
+          }
+          .am-col-h {
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.3rem;
+          }
+          .arch-map figcaption {
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 0.8rem;
+          }
+          @media (max-width: 700px) {
+            .am-cols {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
       </div>
 
       <div class="cs-divider"></div>
@@ -1982,7 +2101,8 @@
           <div class="result-card reveal">
             <div class="r-num">0</div>
             <div class="r-desc">
-              Raw hex values in component CSS — everything references a token
+              Raw hex values in component styles — colours reference a token
+              (hero gradients and a few theme overrides aside)
             </div>
           </div>
           <div class="result-card reveal reveal-d1">
@@ -2027,11 +2147,14 @@
       >
     </div>
     <footer>
-      <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+      <p>© 2026 Emmanuel Edigbe. All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="work.html">Work</a><a href="writing.html">Writing</a
         ><a href="index.html#about">About</a
-        ><a href="index.html#process">Process</a><a href="#">Résumé ↗</a>
+        ><a href="index.html#process">Process</a
+        ><a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+          >Résumé ↗</a
+        >
       </nav>
     </footer>
     <script>

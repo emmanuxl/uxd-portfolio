@@ -3,10 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Designing for a medium with no conventions — lessons from Immerseum —
-      Emmanuel Edigbe
-    </title>
+    <title>Designing for a medium with no conventions — Emmanuel Edigbe</title>
+    <meta
+      name="description"
+      content="When there are no established UX patterns for a platform, every interaction has to be either self-evidently intuitive or explicitly taught. Lessons from designing Immerseum."
+    />
+    <meta name="theme-color" content="#1c1c1c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:site_name" content="Emmanuel Edigbe" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Designing for a medium with no conventions — Emmanuel Edigbe"
+    />
+    <meta
+      property="og:description"
+      content="When there are no established UX patterns for a platform, every interaction has to be either self-evidently intuitive or explicitly taught. Lessons from designing Immerseum."
+    />
+    <meta property="og:image" content="media/og/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Emmanuel Edigbe — UX designer portfolio"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Designing for a medium with no conventions — Emmanuel Edigbe"
+    />
+    <meta
+      name="twitter:description"
+      content="When there are no established UX patterns for a platform, every interaction has to be either self-evidently intuitive or explicitly taught. Lessons from designing Immerseum."
+    />
+    <meta name="twitter:image" content="media/og/og-card.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -634,7 +667,11 @@
           <li><a href="writing.html" class="active">Writing</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#process">Process</a></li>
-          <li><a href="#">Résumé ↗</a></li>
+          <li>
+            <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+              >Résumé ↗</a
+            >
+          </li>
         </ul>
         <div class="nav-right">
           <div class="toggle-wrap">
@@ -759,11 +796,20 @@
         <li><a href="writing.html">Writing</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="#">Résumé ↗</a></li>
+        <li>
+          <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
+        </li>
       </ul>
       <div class="nav-mobile-sub">
         <a href="index.html">Home</a>
-        <a href="#">LinkedIn ↗</a>
+        <a
+          href="https://linkedin.com/in/emmanueledigbe"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
       </div>
     </div>
 
@@ -786,7 +832,7 @@
         </svg>
         Writing
       </a>
-      <span class="article-eyebrow">AR · XR · Spatial Design · 9 min read</span>
+      <span class="article-eyebrow">AR · XR · Spatial Design · 6 min read</span>
       <h1 class="article-title">
         Designing for a medium with no conventions — lessons from
         <em>Immerseum</em>
@@ -846,33 +892,30 @@
           </p>
         </blockquote>
 
-        <h2>Self-evidently intuitive: what that actually means</h2>
+        <h2>Self-evidently intuitive: borrowing from the physical world</h2>
         <p>
-          Self-evidently intuitive interactions are those that exploit existing
-          human behaviour so naturally that no instruction is required. Reaching
-          toward an object to inspect it. Stepping closer to read something.
-          Looking at a point of interest to signal attention. These work because
-          they map directly onto physical-world behaviour that every visitor
-          already has, regardless of their technology familiarity.
+          Self-evidently intuitive interactions exploit existing human behaviour
+          so naturally that no instruction is required. Reaching toward an
+          object to inspect it. Stepping closer to read something. Following a
+          line on the floor. These work because they map directly onto
+          physical-world behaviour that every visitor already has, regardless of
+          their technology familiarity.
         </p>
         <p>
-          Immerseum's primary interaction model leaned on gaze-based triggering
-          for exhibit information. A visitor looking at an artefact for more
-          than 1.5 seconds would see a subtle highlight appear, followed by an
-          information panel at a comfortable reading distance. No button. No
-          controller input. The trigger was the same behaviour any interested
-          visitor would exhibit — sustained attention on a single point.
+          Navigation in Immerseum leaned on exactly this. Rather than a map or a
+          menu, directional arrows are overlaid onto the museum floor, so
+          physical space becomes the interface. Exhibit markers float near the
+          artworks they describe. When a visitor approaches an object, a 3D
+          model appears that can be rotated, zoomed and, with haptic gloves,
+          touched. Each of these borrows from something people already know how
+          to do: follow a path, move closer, pick something up.
         </p>
         <p>
-          The 1.5 second threshold was not arbitrary. It was observed. In the
-          first unguided testing session, participants were asked to walk
-          through a prototype exhibit space without instruction. We measured how
-          long they held their gaze on exhibit points that genuinely interested
-          them versus points they glanced at in passing. 1.5 seconds separated
-          the two behaviours consistently across participants. Below that
-          threshold, panels appeared accidentally. Above it, they appeared at
-          the moment a visitor was already asking the implicit question: what is
-          this?
+          The same thinking shaped the virtual guide. Instead of a menu of audio
+          tracks, "Theo" appears as a holographic projection alongside the real
+          exhibit, narrating its history and answering questions in
+          conversation. A guide standing next to an artefact is a pattern every
+          museum visitor already understands.
         </p>
 
         <h2>What has to be explicitly taught</h2>
@@ -882,58 +925,65 @@
           more important design judgements in a medium without conventions.
         </p>
         <p>
-          Immerseum's haptic navigation system required explicit teaching. The
-          system used haptic pulses through the Quest 3 controllers to guide
-          visitors directionally: a short pulse on the left indicated something
-          interesting to the left, a double pulse indicated something behind.
-          This was not an intuitive affordance. No amount of careful design
-          would make an unfamiliar haptic pattern self-explanatory.
+          Haptic feedback is the clearest example. Gloves that let a visitor
+          feel the texture of a 3D artefact are powerful, but nothing in
+          everyday life prepares someone for that sensation. It has to be
+          introduced, which is why the first screen of the experience, the Tour
+          Preferences screen, is also where visitors make three decisions that
+          set up everything else: their language, their accessibility settings,
+          and their choice of virtual guide.
         </p>
         <p>
-          The instruction approach was a thirty-second interactive onboarding at
-          the experience start. Not a tutorial video or a text wall — an
-          interactive demonstration where visitors experienced a haptic pulse
-          while simultaneously seeing a visual indicator pointing in the
-          signalled direction. After two or three repetitions, the mapping was
-          encoded. Post-experience testing showed that all participants
-          correctly interpreted directional haptics by the midpoint of their
-          visit. The explicit teaching had transferred into something that felt,
-          by the end, almost intuitive.
+          Some patterns also need teaching in the interface itself. When the
+          "Choose an Exhibit" screen gave no sign that it could be scrolled,
+          people missed the exhibits below the fold. The fix was a small gesture
+          animation showing how to scroll — a cue that teaches the interaction
+          without relying on text, and respects the spatial paradigm rather than
+          importing a screen convention into it.
         </p>
 
         <h2>Designing for the broadest possible visitor</h2>
         <p>
           A museum context imposes an unusual design constraint: the visitor
-          demographic is deliberately broad. Children, elderly visitors,
-          international tourists, people who have never worn a headset.
-          Immerseum had to work for all of them — which meant every affordance
-          had to be designed for the least familiar user first.
+          demographic is deliberately broad. First-time headset wearers,
+          international tourists, people who find crowds stressful. Immerseum
+          had to work for all of them — which meant starting from three
+          different people rather than one average user. Anna needs the
+          experience in Spanish. David wants to touch things. Leo wants calm and
+          control over his own pace.
         </p>
         <p>
-          The test was simple: could a visitor who had never used AR navigate to
-          an exhibit, trigger its information layer, access an audio guide, and
-          find the exit experience without assistance? This became the standard
-          against which every interaction was evaluated. If it failed for the
-          least familiar user, it was redesigned.
+          Those personas turned into constraints that every feature had to
+          answer to. Spatial audio narration and optional subtitles give Anna
+          linguistic access. Haptic gloves and zoomable overlays give David a
+          hands-on way in. Calm navigation markers and a private audio bubble
+          reduce decision fatigue for Leo. The accessibility features
+          (subtitles, audio descriptions in multiple languages, reduced
+          transitions for sensory sensitivity) were designed in from the start
+          rather than offered as an optional mode. The difference between these
+          personas is not preference. They need different things to be able to
+          participate at all.
+        </p>
+
+        <h2>What the prototype showed — and what it couldn't</h2>
+        <p>
+          It is worth being clear about how far this project went. Immerseum was
+          a concept designed for a Master's module, and it was evaluated with
+          five participants who were shown prototype videos and an interactive
+          Figma prototype rather than wearing a headset in a gallery. Three of
+          the five had no prior XR experience, and the sessions combined
+          think-aloud observation, task-based tests and SUS questionnaires.
         </p>
         <p>
-          Language selection was one of the more complex problems in this
-          category. It needed to happen before the experience began, without
-          assuming the visitor could read the interface language. The solution
-          was a flag-based screen with audio samples — a visitor could tap a
-          flag to hear a short spoken phrase in that language, confirming their
-          selection before committing. No literacy requirement. No assumption of
-          prior familiarity with the flag of every represented country. Just:
-          hear a voice, recognise the language, proceed.
-        </p>
-        <p>
-          Multilingual support extended into the experience itself. Exhibit
-          information panels were available in seven languages with a
-          gaze-triggered language switcher — a small flag icon persistent at the
-          edge of each panel. The captions designed for Deaf visitors, which
-          rendered spoken audio guide content as text, were adopted by hearing
-          visitors as well — particularly in the noisier gallery spaces where
-          the audio guide competed with ambient sound.
+          That is enough to catch interface problems, and it did: the arrows
+          blended into the environment at distance, and people wanted to know
+          how far away the next exhibit was. The response was sharper, higher
+          contrast arrows with live distance text. But it is not enough to
+          validate how an interaction feels in physical space — whether an arrow
+          on a real floor reads clearly, whether haptic cues are noticed, how
+          comfortable a headset is after twenty minutes. Those questions remain
+          open, and in a medium without conventions they are the ones that
+          matter most.
         </p>
 
         <h2>What designing without conventions teaches you</h2>
@@ -972,13 +1022,15 @@
       </div>
     </article>
     <footer>
-      <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+      <p>© 2026 Emmanuel Edigbe. All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="work.html">Work</a>
         <a href="writing.html">Writing</a>
         <a href="index.html#about">About</a>
         <a href="index.html#process">Process</a>
-        <a href="#">Résumé ↗</a>
+        <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+          >Résumé ↗</a
+        >
       </nav>
     </footer>
     <script>

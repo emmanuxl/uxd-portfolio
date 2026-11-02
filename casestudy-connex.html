@@ -3,7 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connex — Case Study · Emmanuel Edigbe</title>
+    <title>Connex — Marketplace onboarding UX · Emmanuel Edigbe</title>
+    <meta
+      name="description"
+      content="Onboarding for a two-sided contractor marketplace: separate client and contractor flows that both reach a live match as the first moment of value."
+    />
+    <meta name="theme-color" content="#1c1c1c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:site_name" content="Emmanuel Edigbe" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Connex — Marketplace onboarding UX · Emmanuel Edigbe"
+    />
+    <meta
+      property="og:description"
+      content="Onboarding for a two-sided contractor marketplace: separate client and contractor flows that both reach a live match as the first moment of value."
+    />
+    <meta property="og:image" content="media/og/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Emmanuel Edigbe — UX designer portfolio"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Connex — Marketplace onboarding UX · Emmanuel Edigbe"
+    />
+    <meta
+      name="twitter:description"
+      content="Onboarding for a two-sided contractor marketplace: separate client and contractor flows that both reach a live match as the first moment of value."
+    />
+    <meta name="twitter:image" content="media/og/og-card.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -1130,6 +1166,57 @@
         }
       }
     </style>
+    <style>
+      .flow-wrap {
+        overflow-x: auto;
+        margin: 1.5rem 0 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--bg2);
+        padding: 1rem 0.5rem;
+      }
+      .flow {
+        display: block;
+        width: 100%;
+        min-width: 600px;
+        height: auto;
+        font-family: "DM Mono", monospace;
+      }
+      .flow .nd {
+        fill: var(--surface);
+        stroke-width: 1.5;
+      }
+      .flow .nd.last {
+        stroke-width: 2.5;
+      }
+      .flow .lb {
+        fill: var(--ink);
+        font-size: 12px;
+      }
+      .flow .num {
+        fill: var(--muted);
+        font-size: 9px;
+        letter-spacing: 0.12em;
+      }
+      .flow .pc {
+        fill: var(--muted);
+        font-size: 10px;
+      }
+      .flow .ar {
+        fill: none;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .flow.c .nd,
+      .flow.c .ar {
+        stroke: var(--indigo);
+      }
+      .flow.k .nd,
+      .flow.k .ar {
+        stroke: var(--teal);
+      }
+    </style>
   </head>
   <body>
     <div id="cursor" aria-hidden="true">
@@ -1144,7 +1231,11 @@
           <li><a href="writing.html">Writing</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#process">Process</a></li>
-          <li><a href="#">Résumé ↗</a></li>
+          <li>
+            <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+              >Résumé ↗</a
+            >
+          </li>
         </ul>
         <div class="nav-right">
           <div class="toggle-wrap">
@@ -1269,19 +1360,28 @@
         <li><a href="writing.html">Writing</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="#">Résumé ↗</a></li>
+        <li>
+          <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
+        </li>
       </ul>
       <div class="nav-mobile-sub">
         <a href="index.html">Home</a>
-        <a href="#">LinkedIn ↗</a>
+        <a
+          href="https://linkedin.com/in/emmanueledigbe"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
       </div>
     </div>
 
     <section id="cs-hero">
       <div class="cs-hero-content">
-        <a href="index.html#work" class="hero-back-link">← All Work</a>
+        <a href="work.html" class="hero-back-link">← Back to Work</a>
         <span class="cs-eyebrow"
-          >Marketplace · Onboarding UX · Desktop Web</span
+          >Case Study · Marketplace Onboarding · 2023</span
         >
         <h1 class="cs-title">
           Connex — onboarding <em>both sides</em> of a marketplace
@@ -1580,6 +1680,89 @@
           match each user's actual needs.
         </p>
         <h3 class="cs-h3">Client journey — 4 steps</h3>
+        <div
+          class="flow-wrap reveal"
+          tabindex="0"
+          role="group"
+          aria-label="Client journey"
+        >
+          <svg
+            class="flow c"
+            viewBox="0 0 560 130"
+            role="img"
+            aria-labelledby="t-c d-c"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title id="t-c">Client onboarding flow</title>
+            <desc id="d-c">
+              Five stages: choose account type, personal details, verify email,
+              post first job, success with a 97% match.
+            </desc>
+            <rect class="nd" x="20.0" y="30" width="86.4" height="70" rx="8" />
+            <text class="num" x="63.2" y="18" text-anchor="middle">START</text>
+            <text class="lb" x="63.2" y="60" text-anchor="middle">Choose</text>
+            <text class="lb" x="63.2" y="76" text-anchor="middle">
+              account type
+            </text>
+            <path class="ar" d="M109.4 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="128.4" y="30" width="86.4" height="70" rx="8" />
+            <text class="num" x="171.6" y="18" text-anchor="middle">
+              STEP 2
+            </text>
+            <text class="lb" x="171.6" y="60" text-anchor="middle">
+              Personal
+            </text>
+            <text class="lb" x="171.6" y="76" text-anchor="middle">
+              details
+            </text>
+            <text class="pc" x="171.6" y="122" text-anchor="middle">50%</text>
+            <path class="ar" d="M217.8 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="236.8" y="30" width="86.4" height="70" rx="8" />
+            <text class="num" x="280.0" y="18" text-anchor="middle">
+              STEP 3
+            </text>
+            <text class="lb" x="280.0" y="60" text-anchor="middle">Verify</text>
+            <text class="lb" x="280.0" y="76" text-anchor="middle">email</text>
+            <text class="pc" x="280.0" y="122" text-anchor="middle">75%</text>
+            <path class="ar" d="M326.2 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="345.2" y="30" width="86.4" height="70" rx="8" />
+            <text class="num" x="388.4" y="18" text-anchor="middle">
+              STEP 4
+            </text>
+            <text class="lb" x="388.4" y="60" text-anchor="middle">
+              Post first
+            </text>
+            <text class="lb" x="388.4" y="76" text-anchor="middle">job</text>
+            <text class="pc" x="388.4" y="122" text-anchor="middle">100%</text>
+            <path class="ar" d="M434.6 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect
+              class="nd last"
+              x="453.6"
+              y="30"
+              width="86.4"
+              height="70"
+              rx="8"
+            />
+            <text class="num" x="496.8" y="18" text-anchor="middle">✓</text>
+            <text class="lb" x="496.8" y="60" text-anchor="middle">
+              Success
+            </text>
+            <text class="lb" x="496.8" y="76" text-anchor="middle">
+              97% match
+            </text>
+          </svg>
+        </div>
+        <p
+          class="cs-p"
+          style="
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+          "
+        >
+          Client journey · % = sidebar progress
+        </p>
         <div class="tl-list">
           <div class="tl-item reveal">
             <div class="tl-icon">
@@ -1665,6 +1848,117 @@
           </div>
         </div>
         <h3 class="cs-h3">Contractor journey — 6 steps</h3>
+        <div
+          class="flow-wrap reveal"
+          tabindex="0"
+          role="group"
+          aria-label="Contractor journey"
+        >
+          <svg
+            class="flow k"
+            viewBox="0 0 860 130"
+            role="img"
+            aria-labelledby="t-k d-k"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title id="t-k">Contractor onboarding flow</title>
+            <desc id="d-k">
+              Seven stages: choose account type, personal details, skills and
+              services, portfolio and ID, banking details, review and go live,
+              success with three matched jobs.
+            </desc>
+            <rect class="nd" x="20.0" y="30" width="98.3" height="70" rx="8" />
+            <text class="num" x="69.1" y="18" text-anchor="middle">START</text>
+            <text class="lb" x="69.1" y="60" text-anchor="middle">Choose</text>
+            <text class="lb" x="69.1" y="76" text-anchor="middle">
+              account type
+            </text>
+            <path class="ar" d="M121.3 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="140.3" y="30" width="98.3" height="70" rx="8" />
+            <text class="num" x="189.4" y="18" text-anchor="middle">
+              STEP 2
+            </text>
+            <text class="lb" x="189.4" y="60" text-anchor="middle">
+              Personal
+            </text>
+            <text class="lb" x="189.4" y="76" text-anchor="middle">
+              details
+            </text>
+            <path class="ar" d="M241.6 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="260.6" y="30" width="98.3" height="70" rx="8" />
+            <text class="num" x="309.7" y="18" text-anchor="middle">
+              STEP 3
+            </text>
+            <text class="lb" x="309.7" y="60" text-anchor="middle">
+              Skills &
+            </text>
+            <text class="lb" x="309.7" y="76" text-anchor="middle">
+              services
+            </text>
+            <text class="pc" x="309.7" y="122" text-anchor="middle">50%</text>
+            <path class="ar" d="M361.9 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="380.9" y="30" width="98.3" height="70" rx="8" />
+            <text class="num" x="430.0" y="18" text-anchor="middle">
+              STEP 4
+            </text>
+            <text class="lb" x="430.0" y="60" text-anchor="middle">
+              Portfolio
+            </text>
+            <text class="lb" x="430.0" y="76" text-anchor="middle">& ID</text>
+            <text class="pc" x="430.0" y="122" text-anchor="middle">67%</text>
+            <path class="ar" d="M482.1 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="501.1" y="30" width="98.3" height="70" rx="8" />
+            <text class="num" x="550.3" y="18" text-anchor="middle">
+              STEP 5
+            </text>
+            <text class="lb" x="550.3" y="60" text-anchor="middle">
+              Banking
+            </text>
+            <text class="lb" x="550.3" y="76" text-anchor="middle">
+              details
+            </text>
+            <text class="pc" x="550.3" y="122" text-anchor="middle">83%</text>
+            <path class="ar" d="M602.4 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect class="nd" x="621.4" y="30" width="98.3" height="70" rx="8" />
+            <text class="num" x="670.6" y="18" text-anchor="middle">
+              STEP 6
+            </text>
+            <text class="lb" x="670.6" y="60" text-anchor="middle">
+              Review &
+            </text>
+            <text class="lb" x="670.6" y="76" text-anchor="middle">
+              go live
+            </text>
+            <text class="pc" x="670.6" y="122" text-anchor="middle">100%</text>
+            <path class="ar" d="M722.7 65 h14 m-5 -4 l5 4 l-5 4" />
+            <rect
+              class="nd last"
+              x="741.7"
+              y="30"
+              width="98.3"
+              height="70"
+              rx="8"
+            />
+            <text class="num" x="790.9" y="18" text-anchor="middle">✓</text>
+            <text class="lb" x="790.9" y="60" text-anchor="middle">
+              Success
+            </text>
+            <text class="lb" x="790.9" y="76" text-anchor="middle">
+              3 matched jobs
+            </text>
+          </svg>
+        </div>
+        <p
+          class="cs-p"
+          style="
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+          "
+        >
+          Contractor journey · % = sidebar progress
+        </p>
         <div class="tl-list">
           <div class="tl-item reveal">
             <div class="tl-icon">
@@ -1747,721 +2041,54 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <figure class="reveal" style="margin: 2.5rem 0">
-          <svg
-            width="100%"
-            viewBox="0 0 680 660"
-            role="img"
-            xmlns="http://www.w3.org/2000/svg"
-            font-family="system-ui,-apple-system,sans-serif"
-          >
-            <title>
-              Side-by-side user journeys — client (4 steps) and contractor (6
-              steps)
-            </title>
-            <desc>
-              Client journey: post a job, review matches, award contract,
-              confirm completion. Contractor journey: browse jobs, submit
-              proposal, complete profile check, await award, complete work,
-              receive payment.
-            </desc>
-            <defs>
-              <marker
-                id="arr"
-                viewBox="0 0 10 10"
-                refX="8"
-                refY="5"
-                markerWidth="6"
-                markerHeight="6"
-                orient="auto-start-reverse"
-              >
+          <div class="tl-item reveal reveal-d3">
+            <div class="tl-icon">
+              <svg viewBox="0 0 12 12" fill="none">
                 <path
-                  d="M2 1L8 5L2 9"
-                  fill="none"
-                  stroke="context-stroke"
+                  d="M2 6l3 3 5-5"
+                  stroke="currentColor"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
-              </marker>
-            </defs>
+              </svg>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Step 6 — Review &amp; go live (100%)</div>
+              <div class="tl-desc">
+                Summary of everything entered, then the profile goes live and
+                the success screen shows three matched jobs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- ── Column headers ────────────────────────────────────────── -->
-            <!-- Client — indigo -->
-            <rect
-              x="40"
-              y="28"
-              width="260"
-              height="36"
-              rx="8"
-              fill="#3730a3"
-              opacity="0.12"
-            />
-            <text
-              x="170"
-              y="51"
-              text-anchor="middle"
-              font-size="13"
-              font-weight="600"
-              fill="#3730a3"
-              letter-spacing="0.08em"
-            >
-              CLIENT JOURNEY
-            </text>
+      <div class="cs-divider"></div>
 
-            <!-- Contractor — teal -->
-            <rect
-              x="380"
-              y="28"
-              width="260"
-              height="36"
-              rx="8"
-              fill="#0f4a45"
-              opacity="0.12"
-            />
-            <text
-              x="510"
-              y="51"
-              text-anchor="middle"
-              font-size="13"
-              font-weight="600"
-              fill="#0f4a45"
-              letter-spacing="0.08em"
-            >
-              CONTRACTOR JOURNEY
-            </text>
+      <div class="cs-section reveal">
+        <span class="cs-section-tag">05 · Screen Walkthrough</span>
+        <h2 class="cs-h2">11 screens, <em>one coherent journey</em></h2>
+        <p class="cs-p">
+          Every screen has a single job. The sequence below follows the exact
+          order a user experiences — starting from the public landing page,
+          splitting into client and contractor paths, and ending with an
+          activation moment that proves the platform works before the first
+          session ends.
+        </p>
 
-            <!-- ── Divider ────────────────────────────────────────────────── -->
-            <line
-              x1="340"
-              y1="24"
-              x2="340"
-              y2="636"
-              stroke="var(--border, #e0e0e0)"
-              stroke-width="1"
-              stroke-dasharray="4 4"
-            />
-
-            <!-- ══ CLIENT — 4 steps ══════════════════════════════════════════
-       Box: x=40, w=260, cx=170
-       Heights: y=90,190,310,430  h=72 for steps 1/4, h=88 for 2/3
-  -->
-
-            <!-- Step 1: Post a job -->
-            <rect
-              x="40"
-              y="90"
-              width="260"
-              height="72"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#3730a3"
-              stroke-width="0.5"
-              stroke-opacity="0.4"
-            />
-            <text
-              x="170"
-              y="120"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Post a job
-            </text>
-            <text
-              x="170"
-              y="141"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Describe scope, timeline, budget
-            </text>
-            <!-- step number pill -->
-            <rect x="40" y="90" width="24" height="24" rx="4" fill="#3730a3" />
-            <text
-              x="52"
-              y="107"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              1
-            </text>
-
-            <!-- arrow -->
-            <line
-              x1="170"
-              y1="162"
-              x2="170"
-              y2="183"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 2: Review matches -->
-            <rect
-              x="40"
-              y="190"
-              width="260"
-              height="88"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#3730a3"
-              stroke-width="0.5"
-              stroke-opacity="0.4"
-            />
-            <text
-              x="170"
-              y="220"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Review matched contractors
-            </text>
-            <text
-              x="170"
-              y="241"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Compare proposals, profiles,
-            </text>
-            <text
-              x="170"
-              y="257"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              ratings and estimated cost
-            </text>
-            <rect x="40" y="190" width="24" height="24" rx="4" fill="#3730a3" />
-            <text
-              x="52"
-              y="207"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              2
-            </text>
-
-            <!-- arrow -->
-            <line
-              x1="170"
-              y1="278"
-              x2="170"
-              y2="299"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 3: Award contract -->
-            <rect
-              x="40"
-              y="306"
-              width="260"
-              height="88"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#3730a3"
-              stroke-width="0.5"
-              stroke-opacity="0.4"
-            />
-            <text
-              x="170"
-              y="336"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Award the contract
-            </text>
-            <text
-              x="170"
-              y="357"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Select preferred contractor,
-            </text>
-            <text
-              x="170"
-              y="373"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              agree terms and start date
-            </text>
-            <rect x="40" y="306" width="24" height="24" rx="4" fill="#3730a3" />
-            <text
-              x="52"
-              y="323"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              3
-            </text>
-
-            <!-- arrow -->
-            <line
-              x1="170"
-              y1="394"
-              x2="170"
-              y2="415"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 4: Confirm completion -->
-            <rect
-              x="40"
-              y="422"
-              width="260"
-              height="72"
-              rx="8"
-              fill="#eef2ff"
-              stroke="#3730a3"
-              stroke-width="1"
-            />
-            <text
-              x="170"
-              y="450"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="#3730a3"
-            >
-              Confirm completion
-            </text>
-            <text
-              x="170"
-              y="471"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="#6366f1"
-            >
-              Review work, release payment
-            </text>
-            <rect x="40" y="422" width="24" height="24" rx="4" fill="#3730a3" />
-            <text
-              x="52"
-              y="439"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              4
-            </text>
-
-            <!-- ══ CONTRACTOR — 6 steps ══════════════════════════════════════
-       Box: x=380, w=260, cx=510
-       6 steps fit in same vertical space — slightly smaller boxes
-  -->
-
-            <!-- Step 1: Browse available jobs -->
-            <rect
-              x="380"
-              y="90"
-              width="260"
-              height="66"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#0f4a45"
-              stroke-width="0.5"
-              stroke-opacity="0.5"
-            />
-            <text
-              x="510"
-              y="117"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Browse available jobs
-            </text>
-            <text
-              x="510"
-              y="138"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Filter by type, location, budget
-            </text>
-            <rect x="380" y="90" width="24" height="24" rx="4" fill="#0f766e" />
-            <text
-              x="392"
-              y="107"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              1
-            </text>
-
-            <line
-              x1="510"
-              y1="156"
-              x2="510"
-              y2="171"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 2: Submit a proposal -->
-            <rect
-              x="380"
-              y="178"
-              width="260"
-              height="66"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#0f4a45"
-              stroke-width="0.5"
-              stroke-opacity="0.5"
-            />
-            <text
-              x="510"
-              y="205"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Submit a proposal
-            </text>
-            <text
-              x="510"
-              y="226"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Set price, timeline, approach
-            </text>
-            <rect
-              x="380"
-              y="178"
-              width="24"
-              height="24"
-              rx="4"
-              fill="#0f766e"
-            />
-            <text
-              x="392"
-              y="195"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              2
-            </text>
-
-            <line
-              x1="510"
-              y1="244"
-              x2="510"
-              y2="259"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 3: Profile verified -->
-            <rect
-              x="380"
-              y="266"
-              width="260"
-              height="66"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#0f4a45"
-              stroke-width="0.5"
-              stroke-opacity="0.5"
-            />
-            <text
-              x="510"
-              y="293"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Profile &amp; ID verified
-            </text>
-            <text
-              x="510"
-              y="314"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Background check, credentials
-            </text>
-            <rect
-              x="380"
-              y="266"
-              width="24"
-              height="24"
-              rx="4"
-              fill="#0f766e"
-            />
-            <text
-              x="392"
-              y="283"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              3
-            </text>
-
-            <line
-              x1="510"
-              y1="332"
-              x2="510"
-              y2="347"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 4: Await contract award -->
-            <rect
-              x="380"
-              y="354"
-              width="260"
-              height="66"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#0f4a45"
-              stroke-width="0.5"
-              stroke-opacity="0.5"
-            />
-            <text
-              x="510"
-              y="381"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Await contract award
-            </text>
-            <text
-              x="510"
-              y="402"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Notified when client selects
-            </text>
-            <rect
-              x="380"
-              y="354"
-              width="24"
-              height="24"
-              rx="4"
-              fill="#0f766e"
-            />
-            <text
-              x="392"
-              y="371"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              4
-            </text>
-
-            <line
-              x1="510"
-              y1="420"
-              x2="510"
-              y2="435"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 5: Complete the work -->
-            <rect
-              x="380"
-              y="442"
-              width="260"
-              height="66"
-              rx="8"
-              fill="var(--surface-1, #fafafa)"
-              stroke="#0f4a45"
-              stroke-width="0.5"
-              stroke-opacity="0.5"
-            />
-            <text
-              x="510"
-              y="469"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="var(--text-primary, #1a1a1a)"
-            >
-              Complete the work
-            </text>
-            <text
-              x="510"
-              y="490"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="var(--text-secondary, #666)"
-            >
-              Log progress, upload evidence
-            </text>
-            <rect
-              x="380"
-              y="442"
-              width="24"
-              height="24"
-              rx="4"
-              fill="#0f766e"
-            />
-            <text
-              x="392"
-              y="459"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              5
-            </text>
-
-            <line
-              x1="510"
-              y1="508"
-              x2="510"
-              y2="523"
-              stroke="var(--border-strong, #999)"
-              stroke-width="1.5"
-              marker-end="url(#arr)"
-            />
-
-            <!-- Step 6: Receive payment -->
-            <rect
-              x="380"
-              y="530"
-              width="260"
-              height="66"
-              rx="8"
-              fill="#f0fdf4"
-              stroke="#0f766e"
-              stroke-width="1"
-            />
-            <text
-              x="510"
-              y="557"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="14"
-              font-weight="500"
-              fill="#0f766e"
-            >
-              Receive payment
-            </text>
-            <text
-              x="510"
-              y="578"
-              text-anchor="middle"
-              dominant-baseline="central"
-              font-size="12"
-              fill="#0f766e"
-            >
-              Released on client confirmation
-            </text>
-            <rect
-              x="380"
-              y="530"
-              width="24"
-              height="24"
-              rx="4"
-              fill="#0f766e"
-            />
-            <text
-              x="392"
-              y="547"
-              text-anchor="middle"
-              font-size="11"
-              font-weight="600"
-              fill="#fff"
-            >
-              6
-            </text>
-
-            <!-- ── Shared moment: contract awarded ── -->
-            <!-- Horizontal dotted connector at the "Award" row showing the shared event -->
-            <line
-              x1="300"
-              y1="350"
-              x2="380"
-              y2="370"
-              stroke="#888"
-              stroke-width="0.8"
-              stroke-dasharray="3 3"
-            />
-            <text
-              x="336"
-              y="344"
-              text-anchor="middle"
-              font-size="11"
-              fill="var(--text-secondary, #888)"
-            >
-              match
-            </text>
-          </svg>
+        <h3 class="cs-h3">Screen 01 — Landing page</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen01-landing.png"
+            alt="Connex landing page showing two-sided hero, live job cards, category grid and how-it-works section"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
           <figcaption
             style="
               font-size: 0.68rem;
@@ -2472,147 +2099,427 @@
               text-align: center;
             "
           >
-            Client reaches live match in 4 steps — contractor completes 6 steps
-            from browse to payment
+            Landing page — two-sided hero, live job cards as social proof,
+            category grid, tabbed how-it-works
           </figcaption>
         </figure>
-      </div>
-
-      <div class="cs-divider"></div>
-
-      <div class="cs-section reveal">
-        <span class="cs-section-tag">05 · Screen Walkthrough</span>
-        <h2 class="cs-h2">The 11 screens <em>explained</em></h2>
-
-        <!-- IMAGE 2: Landing page — hero, live job cards, category grid, how it works tabs for each user type -->
-        <div class="img-placeholder medium reveal" role="img">
-          <svg
-            class="img-icon"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
-          >
-            <rect
-              x="4"
-              y="4"
-              width="28"
-              height="28"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.4"
-            />
-          </svg>
-          <div class="img-label">
-            Landing page — hero, live job cards, category grid, how it works
-            tabs for each user type
-          </div>
-          <div class="img-desc">Replace with landing page screenshot</div>
-        </div>
         <p class="cs-p">
-          <strong>Landing page.</strong> The hero immediately signals this is a
-          two-sided marketplace — 'I Need a Contractor' and 'I'm a Contractor'
-          sit side by side as equal-weight CTAs. Live job cards create social
-          proof. The 'How it Works' section uses a tab pattern to serve both
-          audiences without fragmenting the page.
+          The hero resolves the first question any visitor has:
+          <em>is this for me?</em> Two equal-weight CTAs — "I Need a Contractor"
+          and "I'm a Contractor" — sit side by side from the first frame.
+          Neither path is dominant. Live job cards on the right (Emergency
+          Plumber, Electrician, Regular Cleaner) create social proof and signal
+          the platform is already active. The stats row — 12K+ contractors, 48K+
+          jobs done, 4.9 rating, SEK 2M+ paid out — addresses trust before the
+          user has even scrolled. The "How it Works" section uses a tab pattern,
+          letting both audiences navigate explanations without fragmenting into
+          separate pages. The category grid makes the scope of the marketplace
+          immediately scannable.
         </p>
 
-        <!-- IMAGE 3: Role selection — two equal-weight cards, each with five feature bullets before the user co... -->
-        <div class="img-placeholder medium reveal" role="img">
-          <svg
-            class="img-icon"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
+        <h3 class="cs-h3">Screen 02 — Get started</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen02-get-started.png"
+            alt="Get started screen with two equal-weight role cards: I Need a Contractor and I Offer Services"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
           >
-            <rect
-              x="4"
-              y="4"
-              width="28"
-              height="28"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.4"
-            />
-          </svg>
-          <div class="img-label">
-            Role selection — two equal-weight cards, each with five feature
-            bullets before the user commits
-          </div>
-          <div class="img-desc">Replace with role selection screenshot</div>
-        </div>
+            Role selection — dedicated screen with feature lists before the user
+            commits to either path
+          </figcaption>
+        </figure>
         <p class="cs-p">
-          <strong>Role selection.</strong> Rather than a dropdown mid-form, the
-          choice gets its own full-page screen. Both cards carry equal visual
-          weight. Each lists five concrete features so the user understands
-          exactly what they're committing to before clicking through.
+          Role selection gets its own full-page screen rather than being buried
+          as a dropdown mid-form. Both cards carry identical visual weight —
+          same height, same border, no default selection. Each card carries five
+          specific feature bullets so the user understands exactly what they are
+          signing up for before clicking. The client card leads with "Post
+          unlimited job listings for free" — removing a common objection before
+          the sign-up form appears. The contractor card leads with "Free
+          professional profile with portfolio" and explicitly states "No company
+          registration required" — the single most important anxiety for sole
+          traders. This screen commits the user to the right flow before any
+          friction begins.
         </p>
 
-        <!-- IMAGE 4: Banking details — clearing number with auto-detected bank, amber tax breakdown panel (27%/... -->
-        <div class="img-placeholder medium reveal" role="img">
-          <svg
-            class="img-icon"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
+        <h3 class="cs-h3">Screen 03 — Personal details (client)</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen03-personal.png"
+            alt="Personal details form for client showing name, email, phone, address and password fields with progress sidebar"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
           >
-            <rect
-              x="4"
-              y="4"
-              width="28"
-              height="28"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.4"
-            />
-          </svg>
-          <div class="img-label">
-            Banking details — clearing number with auto-detected bank, amber tax
-            breakdown panel (27%/3%/70%)
-          </div>
-          <div class="img-desc">Replace with banking details screenshot</div>
-        </div>
+            Personal details — step 2 of 4, persistent progress sidebar, address
+            field labelled for local matching
+          </figcaption>
+        </figure>
         <p class="cs-p">
-          <strong>Banking details.</strong> The amber tax panel is the most
-          important UX decision on this screen — it shows exactly where the
-          money goes in plain language before the user enters any bank account
-          information. The clearing number auto-detects the bank name with a
-          'Verified' checkmark.
+          The sidebar pattern appears for the first time here and stays
+          consistent across all remaining onboarding screens. The dark navy
+          sidebar always shows the full journey — completed steps with a green
+          checkmark, the current step in bold, and upcoming steps in muted grey.
+          Users who cannot see the end of a process abandon it at higher rates.
+          The four-step client journey (Choose account type → Personal details →
+          Verify email → Post first job) is short enough to commit to on first
+          sight. The address field is labelled "Your Address (for local
+          matching)" — a three-word rationale that removes uncertainty about why
+          the data is needed. The progress bar reads 50% at step two, which is
+          accurate and honest.
         </p>
 
-        <!-- IMAGE 5: Success screens — client sees matched contractor (97% match), contractor sees three matche... -->
-        <div class="img-placeholder medium reveal" role="img">
-          <svg
-            class="img-icon"
-            width="36"
-            height="36"
-            viewBox="0 0 36 36"
-            fill="none"
+        <h3 class="cs-h3">Screen 04 — Verify email</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen04-verify.png"
+            alt="Verify email screen with 6-digit code input boxes and code verified successfully confirmation"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
           >
-            <rect
-              x="4"
-              y="4"
-              width="28"
-              height="28"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.4"
-            />
-          </svg>
-          <div class="img-label">
-            Success screens — client sees matched contractor (97% match),
-            contractor sees three matched jobs with distance and pay rate
-          </div>
-          <div class="img-desc">Replace with success screen screenshots</div>
-        </div>
+            Email verification — 6 separate digit inputs, 10-minute expiry
+            shown, success state inline
+          </figcaption>
+        </figure>
         <p class="cs-p">
-          <strong>Success screens.</strong> Neither screen says 'you're done' —
-          both immediately prove value. The client's screen shows a live matched
-          contractor. The contractor's screen shows three matched jobs with
-          distance, proposal count, and pay rate. The activation moment happens
-          before the first session ends.
+          The six-digit code uses individual digit boxes rather than a single
+          text field. This pattern reduces input errors and makes the expected
+          format immediately obvious. The screen shows the expiry timer (Expires
+          in 09:47) and a Resend code link simultaneously — handling both the
+          patient user and the one who missed the email without requiring a
+          separate error screen. The success state — "Code verified successfully
+          · Your email address has been confirmed" — appears inline on the same
+          screen rather than navigating away. The user sees confirmation in
+          context before the automatic transition to step 4.
+        </p>
+
+        <h3 class="cs-h3">Screen 05 — Post first job</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen05-post-job.png"
+            alt="Post first job screen showing service category grid, job title, description, urgency and budget fields"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Post first job — step 4 of 4, category selection, urgency dropdown,
+            budget range, photo upload
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          Posting a job is the final step of client onboarding rather than a
+          redirect to an empty dashboard. This captures intent at its highest
+          point — the user has just committed to the platform and is most
+          motivated to act. The category grid (Plumbing, Electrician, Cleaning,
+          Tutoring, Carpentry, Painting/Deco, Gardening, Handyman) uses a visual
+          tile pattern rather than a dropdown, making the most common selections
+          reachable in one tap. The sidebar callout "The more detail you give,
+          the better proposals you'll receive — a clear job description gets 3x
+          more responses" is positioned precisely here because it motivates
+          richer input at the moment the user is writing. The urgency dropdown
+          (Urgent – same day), budget range fields, and optional photo upload
+          complete a form that is genuinely useful without being exhausting.
+        </p>
+
+        <h3 class="cs-h3">Screen 06 — Client success</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen06-client-success.png"
+            alt="Client success screen showing You're all set Emma with 97% matched contractor David Okafor"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Client success — personalised by name, 97% match score shown
+            immediately, two CTAs: view proposals or dashboard
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          The client success screen does not say "you're done" — it says "You're
+          all set, Emma!" and immediately shows a live matched contractor. David
+          Okafor, Plumber – Gas Safe Registered, 97% match, 4.5 stars, 142 jobs.
+          This is not placeholder content — it is the platform's matching
+          algorithm running in real time. Three contractors are already matched;
+          the top card is surfaced immediately. The two CTAs — "View Proposals"
+          (primary, green) and "Go to Dashboard" (secondary, white) — give the
+          user a meaningful choice. The footer note ("We'll email you at
+          emma.t@gmail.com when new proposals arrive") sets the expectation for
+          what happens next without requiring the user to return manually.
+        </p>
+
+        <h3 class="cs-h3">Screen 07 — Contractor skills &amp; services</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen07-skills.png"
+            alt="Contractor skills and services screen showing service category tiles, professional bio textarea, service area, hourly rate range and availability days"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Skills & services — step 3 of 6, category tiles, bio, service area,
+            hourly rate range, day availability
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          Step 3 of the contractor journey establishes the core of the
+          contractor's profile. The category tiles match the client-side grid
+          exactly — the same eight categories appear on both sides of the
+          marketplace. The professional bio textarea carries the instruction
+          "Write what you'd tell a new client about your experience and
+          approach" — framing it as a conversation rather than a form field. The
+          service area (Jönköping) explains immediately: "Clients from this city
+          will be matched with you first." Hourly rate min and max fields allow
+          contractors to set a range rather than a single price, which better
+          reflects how tradespeople actually quote. The availability grid — M T
+          W T F S S with toggleable day pills — gives clients meaningful
+          scheduling information without requiring the contractor to commit to a
+          rigid calendar.
+        </p>
+
+        <h3 class="cs-h3">Screen 08 — Portfolio &amp; ID verification</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen08-portfolio.png"
+            alt="Portfolio and ID verification screen with photo upload grid, government ID selection and certification upload"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Portfolio & ID — step 4 of 6, sidebar explains contractors with
+            portfolios get 3× more job offers
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          This screen asks for the most sensitive information in the contractor
+          flow — government ID and portfolio photos — and justifies both before
+          the upload UI appears. The sidebar callout "Contractors with
+          portfolios photos get <strong>3× more job offers</strong>" addresses
+          the "is this worth my time?" objection directly. The portfolio grid
+          supports up to 8 images with clear file guidance (JPG, PNG, max 10MB
+          each). Government ID offers two paths — Drivers Licence or Passport —
+          as equal-weight tiles, avoiding the assumption that all users hold one
+          specific document type. The ID copy ("Your ID is encrypted and never
+          shared with clients") appears immediately below the section heading,
+          not in a footer or a tooltip. Professional certification is optional
+          but recommended, with an already-uploaded insurance policy shown as a
+          completed state to normalise the action.
+        </p>
+
+        <h3 class="cs-h3">Screen 09 — Banking details</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen09-banking.png"
+            alt="Banking details screen showing clearing number auto-detecting Nordea Bank and amber tax breakdown panel with 27% 3% 70% split"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Banking details — step 5 of 6, auto-detected bank from clearing
+            number, tax transparency before account data
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          The amber tax panel is the most consequential UX decision in the
+          contractor flow. It appears before any banking fields are completed
+          and shows exactly where the money goes: 27% basic rate tax, 3%
+          platform fee, 70% take-home. This converts an anxiety into informed
+          consent. Contractors who do not understand how deductions work will
+          not trust a platform with their bank details — this panel removes that
+          objection entirely. The clearing number field auto-detects the bank
+          name: entering 4601 surfaces Nordea Bank with a green "✓ Verified"
+          badge, which removes uncertainty about whether the field is being used
+          correctly. The escrow sidebar copy ("Payments are held in escrow until
+          the client confirms the job is complete. We handle tax deductions so
+          you don't need a registered company") reinforces the core contractor
+          value proposition at the moment when trust matters most.
+        </p>
+
+        <h3 class="cs-h3">Screen 10 — Review &amp; go live</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen10-golive.png"
+            alt="Go live screen showing complete contractor profile preview with Sarah Johnson, availability grid, portfolio photos and profile strength at 87%"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Review & go live — step 6 of 6, full profile preview, 87% profile
+            strength with specific next action
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          The final step is a full profile preview showing exactly what clients
+          will see — not a summary of fields completed, but a rendered profile
+          card with name, title, rate, location, availability, bio, and
+          portfolio photos. The profile strength indicator (87%) is not a vanity
+          metric — it identifies the specific remaining action ("Add one more
+          portfolio photo to reach 100% and unlock Priority Listing") with the
+          reward named explicitly. The completion checklist (✓ Bio, ✓ ID, ✓
+          Banking, ✓ Skills, + 1 more photo) shows what's done and what remains
+          in one glance. The go live CTA — "🚀 Go Live – Publish Profile" — is
+          direct and specific. The terms confirmation checkbox appears
+          immediately above the CTA rather than at the start of onboarding,
+          where it would feel premature.
+        </p>
+
+        <h3 class="cs-h3">Screen 11 — Contractor success</h3>
+        <figure class="reveal" style="margin: 2.5rem 0">
+          <img
+            src="media/connex/connex-screen11-contractor-success.png"
+            alt="Contractor success screen showing You're live Sarah with three matched cleaning jobs showing distance, proposals and pay rate"
+            style="
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 8px;
+            "
+          />
+          <figcaption
+            style="
+              font-size: 0.68rem;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--muted);
+              margin-top: 0.75rem;
+              text-align: center;
+            "
+          >
+            Contractor success — personalised, three matched jobs surfaced
+            immediately with distance, rate and proposal count
+          </figcaption>
+        </figure>
+        <p class="cs-p">
+          The contractor success screen mirrors the structure of the client
+          success screen — personalised by name ("You're live, Sarah!"),
+          immediate matched content, and a dual CTA. Three cleaning jobs are
+          surfaced immediately with the information a contractor needs to
+          evaluate each: distance (0.4mi, 0.2mi, 0.6mi), date, proposal count (0
+          proposals yet / 2 proposals yet), pay rate (SEK60/hr, SEK80/hr,
+          SEK50/hr), and a match quality label (Best match / Good fit). "Browse
+          All Jobs" (primary) and "Go to Dashboard" (secondary) give the
+          contractor two meaningful next steps. The footer note confirms email
+          notification for future matching jobs — closing the loop on what
+          happens after the session ends.
         </p>
       </div>
 
@@ -2758,11 +2665,14 @@
       >
     </div>
     <footer>
-      <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+      <p>© 2026 Emmanuel Edigbe. All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="work.html">Work</a><a href="writing.html">Writing</a
         ><a href="index.html#about">About</a
-        ><a href="index.html#process">Process</a><a href="#">Résumé ↗</a>
+        ><a href="index.html#process">Process</a
+        ><a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+          >Résumé ↗</a
+        >
       </nav>
     </footer>
     <script>

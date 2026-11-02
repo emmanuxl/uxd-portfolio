@@ -3,7 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LUME — Case Study · Emmanuel Edigbe</title>
+    <title>LUME — Premium fashion e-commerce · Emmanuel Edigbe</title>
+    <meta
+      name="description"
+      content="A fashion e-commerce website that balances editorial storytelling with frictionless shopping, designed so the product stays the focus."
+    />
+    <meta name="theme-color" content="#1c1c1c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:site_name" content="Emmanuel Edigbe" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="LUME — Premium fashion e-commerce · Emmanuel Edigbe"
+    />
+    <meta
+      property="og:description"
+      content="A fashion e-commerce website that balances editorial storytelling with frictionless shopping, designed so the product stays the focus."
+    />
+    <meta property="og:image" content="media/og/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Emmanuel Edigbe — UX designer portfolio"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="LUME — Premium fashion e-commerce · Emmanuel Edigbe"
+    />
+    <meta
+      name="twitter:description"
+      content="A fashion e-commerce website that balances editorial storytelling with frictionless shopping, designed so the product stays the focus."
+    />
+    <meta name="twitter:image" content="media/og/og-card.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -1247,6 +1283,13 @@
         line-height: 1.65;
       }
 
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
       .reveal.visible {
         opacity: 1;
         transform: none;
@@ -1756,6 +1799,31 @@
           max-width: 1080px;
         }
       }
+      .lm-fig {
+        margin: 1.4rem 0;
+      }
+      .lm-fig img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--r);
+        border: 1px solid var(--border);
+      }
+      .img-2up .lm-fig {
+        margin: 0;
+      }
+      /* decision items: inline text flow (fixes bold lead-in splitting into columns) */
+      .decision-item {
+        display: block;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+      .decision-item::before {
+        position: absolute;
+        left: 0;
+        top: 0.1rem;
+        margin-top: 0;
+      }
     </style>
   </head>
   <body>
@@ -1771,7 +1839,11 @@
           <li><a href="writing.html">Writing</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#process">Process</a></li>
-          <li><a href="#">Résumé ↗</a></li>
+          <li>
+            <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+              >Résumé ↗</a
+            >
+          </li>
         </ul>
         <div class="nav-right">
           <div class="toggle-wrap">
@@ -1897,17 +1969,26 @@
         <li><a href="writing.html">Writing</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="#">Résumé ↗</a></li>
+        <li>
+          <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
+        </li>
       </ul>
       <div class="nav-mobile-sub">
         <a href="index.html">Home</a>
-        <a href="#">LinkedIn ↗</a>
+        <a
+          href="https://linkedin.com/in/emmanueledigbe"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
       </div>
     </div>
 
     <section id="cs-hero">
       <div class="cs-hero-content">
-        <a href="index.html#work" class="hero-back-link"
+        <a href="work.html" class="hero-back-link"
           ><svg
             width="14"
             height="14"
@@ -1925,7 +2006,7 @@
           </svg>
           Back to Work</a
         >
-        <span class="cs-eyebrow">Case Study · E-commerce · Web Design</span>
+        <span class="cs-eyebrow">Case Study · E-commerce · 2023</span>
         <h1 class="cs-title">
           LUME — A premium fashion store where the <em>product</em> is the
           design
@@ -1968,6 +2049,10 @@
           <div class="cs-meta-label">Category</div>
           <div class="cs-meta-value highlight">Fashion E-commerce</div>
         </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Year</div>
+          <div class="cs-meta-value">2023</div>
+        </div>
       </div>
     </section>
 
@@ -1975,56 +2060,22 @@
     <main class="cs-body">
       <div class="img-2up reveal">
         <!-- IMAGE 1: LUME homepage: Spring '25 Collection hero, trust signals, category grid (Women/Men/Accesso... -->
-        <div class="img-placeholder tall" role="img">
-          <svg
-            class="img-icon"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <rect
-              x="4"
-              y="4"
-              width="32"
-              height="32"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.5"
-            />
-          </svg>
-          <div class="img-label">
-            LUME homepage: Spring '25 Collection hero, trust signals, category
-            grid (Women/Men/Accessories), featured products
-          </div>
-          <div class="img-desc">Left side of hero overview image</div>
-        </div>
+        <figure class="lm-fig reveal">
+          <img
+            src="media/lume/lume-01-overview-homepage.jpg"
+            alt="LUME homepage design: hero, trust signals, category grid and featured products"
+            loading="lazy"
+          />
+        </figure>
 
         <!-- IMAGE 2: LUME commitment section ("Designed to Last"), 20,000+ customers social proof, @lume Instag... -->
-        <div class="img-placeholder tall" role="img">
-          <svg
-            class="img-icon"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <rect
-              x="4"
-              y="4"
-              width="32"
-              height="32"
-              rx="2"
-              stroke="currentColor"
-              stroke-width="1.5"
-            />
-          </svg>
-          <div class="img-label">
-            LUME commitment section ("Designed to Last"), 20,000+ customers
-            social proof, @lume Instagram grid, newsletter footer
-          </div>
-          <div class="img-desc">Right side of hero overview image</div>
-        </div>
+        <figure class="lm-fig reveal">
+          <img
+            src="media/lume/lume-02-overview-commitment-reviews-footer.jpg"
+            alt="LUME homepage lower sections: Designed to Last, customer reviews, Instagram grid and footer"
+            loading="lazy"
+          />
+        </figure>
       </div>
 
       <!-- 01 OVERVIEW -->
@@ -2210,32 +2261,13 @@
             </div>
             <div class="screen-img">
               <!-- IMAGE 3: LUME homepage: hero (Spring '25 Collection) · Trust bar · Women/Men/Accessories grid · Fea... -->
-              <div class="img-placeholder medium" role="img">
-                <svg
-                  class="img-icon"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                >
-                  <rect
-                    x="4"
-                    y="4"
-                    width="28"
-                    height="28"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <div class="img-label">
-                  LUME homepage: hero (Spring '25 Collection) · Trust bar ·
-                  Women/Men/Accessories grid · Featured Products
-                </div>
-                <div class="img-desc">
-                  Replace with homepage Figma screenshot
-                </div>
-              </div>
+              <figure class="lm-fig reveal">
+                <img
+                  src="media/lume/lume-03-homepage.jpg"
+                  alt="LUME homepage design"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -2282,33 +2314,13 @@
             </div>
             <div class="screen-img">
               <!-- IMAGE 4: Product Listing Page: left filter panel (Category, Size, Price Range) · image-grid of 6 pr... -->
-              <div class="img-placeholder medium" role="img">
-                <svg
-                  class="img-icon"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                >
-                  <rect
-                    x="4"
-                    y="4"
-                    width="28"
-                    height="28"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <div class="img-label">
-                  Product Listing Page: left filter panel (Category, Size, Price
-                  Range) · image-grid of 6 products (Organic Cotton Shirt €85,
-                  Silk Midi Dress €195, Wool Overcoat €325, Slim-fit Chinos €85,
-                  Denim Jacket €95, Nike High-top Sneakers €325) · "Sort by:
-                  Newest" at top
-                </div>
-                <div class="img-desc">Replace with PLP Figma screenshot</div>
-              </div>
+              <figure class="lm-fig reveal">
+                <img
+                  src="media/lume/lume-04-product-listing.jpg"
+                  alt="LUME product listing page with filters and product grid"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -2368,32 +2380,13 @@
             </div>
             <div class="screen-img">
               <!-- IMAGE 5: PDP: Minimal Blazer €285 · large image with thumbnail strip · size selector · colour (blac... -->
-              <div class="img-placeholder medium" role="img">
-                <svg
-                  class="img-icon"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                >
-                  <rect
-                    x="4"
-                    y="4"
-                    width="28"
-                    height="28"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <div class="img-label">
-                  PDP: Minimal Blazer €285 · large image with thumbnail strip ·
-                  size selector · colour (black) · quantity · Add to Cart button
-                  · trust signals (free shipping, free returns, secure checkout)
-                  · You May Also Like grid
-                </div>
-                <div class="img-desc">Replace with PDP Figma screenshot</div>
-              </div>
+              <figure class="lm-fig reveal">
+                <img
+                  src="media/lume/lume-05-product-detail.jpg"
+                  alt="LUME product detail page for the Minimal Blazer"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -2446,63 +2439,25 @@
             </div>
             <div class="screen-img">
               <!-- IMAGE 6: Shopping Bag full page: Minimal Blazer (BLACK/S) €250 · Silk Dress (BLACK/S) €85 · Jacket ... -->
-              <div class="img-placeholder medium" role="img">
-                <svg
-                  class="img-icon"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                >
-                  <rect
-                    x="4"
-                    y="4"
-                    width="28"
-                    height="28"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <div class="img-label">
-                  Shopping Bag full page: Minimal Blazer (BLACK/S) €250 · Silk
-                  Dress (BLACK/S) €85 · Jacket Dress €100 · Order Summary (€435
-                  subtotal, free shipping, total €435) · Proceed to Checkout ·
-                  You May Also Like
-                </div>
-                <div class="img-desc">
-                  Replace with Shopping Bag Figma screenshot
-                </div>
-              </div>
+              <figure class="lm-fig reveal">
+                <img
+                  src="media/lume/lume-06-shopping-bag.jpg"
+                  alt="LUME shopping bag page with order summary"
+                  loading="lazy"
+                />
+              </figure>
 
               <!-- IMAGE 7: Cart overlay: Minimal Blazer (COLOUR: BLACK / Size: S) €250 · Silk Dress €85 · Subtotal €3... -->
-              <div class="img-placeholder wide" role="img">
-                <svg
-                  class="img-icon"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                >
-                  <rect
-                    x="4"
-                    y="4"
-                    width="28"
-                    height="28"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="1.4"
-                  />
-                </svg>
-                <div class="img-label">
-                  Cart overlay: Minimal Blazer (COLOUR: BLACK / Size: S) €250 ·
-                  Silk Dress €85 · Subtotal €355 · Total €355 · "Proceed to
-                  Checkout" · "Shopping Bag" secondary CTA
-                </div>
-                <div class="img-desc">
-                  Replace with Cart Overlay Figma screenshot
-                </div>
-              </div>
+              <figure
+                class="lm-fig reveal"
+                style="max-width: 420px; margin-left: auto; margin-right: auto"
+              >
+                <img
+                  src="media/lume/lume-07-cart-overlay.jpg"
+                  alt="LUME slide-in cart overlay"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
         </div>
@@ -2660,19 +2615,21 @@
         ><div class="cs-nav-dir">← Previous</div>
         <div class="cs-nav-label">Connex</div></a
       >
-      <a href="index.html#work" class="cs-nav-link cs-nav-next"
+      <a href="work.html" class="cs-nav-link cs-nav-next"
         ><div class="cs-nav-dir">All Work →</div>
         <div class="cs-nav-label">All Work</div></a
       >
     </div>
     <footer>
-      <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+      <p>© 2026 Emmanuel Edigbe. All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="work.html">Work</a>
         <a href="writing.html">Writing</a>
         <a href="index.html#about">About</a>
         <a href="index.html#process">Process</a>
-        <a href="#">Résumé ↗</a>
+        <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+          >Résumé ↗</a
+        >
       </nav>
     </footer>
     <script>

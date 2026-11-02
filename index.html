@@ -3,7 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emmanuel Edigbe — UX Designer</title>
+    <title>Emmanuel Edigbe — UX Designer · Accessibility &amp; Research</title>
+    <meta
+      name="description"
+      content="UX designer who starts with research and ends with accessible, intuitive interfaces. Case studies in accessibility, AR/XR and mobile design, plus writing on inclusive design."
+    />
+    <meta name="theme-color" content="#1c1c1c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:site_name" content="Emmanuel Edigbe" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Emmanuel Edigbe — UX Designer · Accessibility &amp; Research"
+    />
+    <meta
+      property="og:description"
+      content="UX designer who starts with research and ends with accessible, intuitive interfaces. Case studies in accessibility, AR/XR and mobile design, plus writing on inclusive design."
+    />
+    <meta property="og:image" content="media/og/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Emmanuel Edigbe — UX designer portfolio"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Emmanuel Edigbe — UX Designer · Accessibility &amp; Research"
+    />
+    <meta
+      name="twitter:description"
+      content="UX designer who starts with research and ends with accessible, intuitive interfaces. Case studies in accessibility, AR/XR and mobile design, plus writing on inclusive design."
+    />
+    <meta name="twitter:image" content="media/og/og-card.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -1255,6 +1291,94 @@
       label {
         cursor: pointer !important;
       }
+
+      /* ── EXPERIENCE ── */
+      #experience {
+        background: var(--bg2);
+        padding: 6rem 0;
+        transition: background 0.35s;
+      }
+      .cv-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 2.5rem;
+      }
+      .cv-col-h {
+        font-size: 0.7rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: 1.4rem;
+      }
+      .cv-item {
+        padding: 1.3rem 0;
+        border-top: 1px solid var(--border);
+      }
+      .cv-item:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+      .cv-when {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--indigo);
+        margin-bottom: 0.3rem;
+      }
+      .cv-role {
+        font-family: "Syne", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .cv-org {
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-bottom: 0.5rem;
+      }
+      .cv-desc {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 0;
+      }
+      .cv-extra {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.5rem;
+        justify-content: space-between;
+      }
+      .cv-extra p {
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.8;
+        max-width: 640px;
+        margin: 0;
+      }
+      .cv-extra p strong {
+        color: var(--ink);
+        font-weight: 400;
+      }
+      @media (max-width: 800px) {
+        #experience {
+          padding: 4rem 0;
+        }
+        .cv-cols {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+      }
+      .about-photo {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -1270,7 +1394,11 @@
           <li><a href="writing.html">Writing</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#process">Process</a></li>
-          <li><a href="#">Résumé ↗</a></li>
+          <li>
+            <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+              >Résumé ↗</a
+            >
+          </li>
         </ul>
         <div class="nav-right">
           <div class="toggle-wrap">
@@ -1396,11 +1524,20 @@
         <li><a href="writing.html">Writing</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="#">Résumé ↗</a></li>
+        <li>
+          <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
+        </li>
       </ul>
       <div class="nav-mobile-sub">
         <a href="index.html">Home</a>
-        <a href="#">LinkedIn ↗</a>
+        <a
+          href="https://linkedin.com/in/emmanueledigbe"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
       </div>
     </div>
 
@@ -1655,9 +1792,7 @@
           </div>
           <div class="hero-ctas">
             <a href="#work" class="btn-primary">View Selected Work</a>
-            <a
-              href="/cdn-cgi/l/email-protection#8beeeee6e6eae5fef3e7cbece6eae2e7a5e8e4e6"
-              class="btn-ghost"
+            <a href="mailto:eemmanuxl@gmail.com" class="btn-ghost"
               >Start a Conversation →</a
             >
           </div>
@@ -1676,25 +1811,6 @@
           </div>
         </div>
         <div class="work-list" role="list">
-          <a
-            href="casestudy-yusign.html"
-            class="work-row reveal"
-            role="listitem"
-          >
-            <div class="wr-left">
-              <span class="wr-title">YuSign</span>
-              <span class="wr-desc"
-                >BSL learning app designed accessibility-first. 4 personas, WCAG
-                2.2 AAA compliance, mean SUS score of 88 from usability
-                testing.</span
-              >
-            </div>
-            <div class="wr-right">
-              <span class="wr-type">Solo · Mobile</span>
-              <span class="wr-year">2025</span>
-            </div>
-          </a>
-
           <a
             href="casestudy-passa.html"
             class="work-row reveal"
@@ -1716,21 +1832,21 @@
           </a>
 
           <a
-            href="casestudy-connex.html"
+            href="casestudy-yusign.html"
             class="work-row reveal"
             role="listitem"
           >
             <div class="wr-left">
-              <span class="wr-title">Connex</span>
+              <span class="wr-title">YuSign</span>
               <span class="wr-desc"
-                >Onboarding UX for a two-sided contractor marketplace — separate
-                flows for clients and contractors, both reaching a live match as
-                their first moment of value.</span
+                >BSL learning app designed accessibility-first. 4 personas, WCAG
+                2.2 AAA compliance, mean SUS score of 88 from usability
+                testing.</span
               >
             </div>
             <div class="wr-right">
-              <span class="wr-type">Solo · Desktop</span>
-              <span class="wr-year">2023</span>
+              <span class="wr-type">Solo · Mobile</span>
+              <span class="wr-year">2025</span>
             </div>
           </a>
 
@@ -1744,8 +1860,8 @@
               <span class="wr-desc"
                 >Fitness app designed around the psychological barriers that
                 keep beginners out of the gym. Two rounds of usability testing
-                drove four targeted redesigns, lifting task completion from 60%
-                to 85%.</span
+                drove four targeted redesigns, lifting the usability score from
+                60% to 85%.</span
               >
             </div>
             <div class="wr-right">
@@ -1772,6 +1888,25 @@
               <span class="wr-year">2025</span>
             </div>
           </a>
+
+          <a
+            href="casestudy-connex.html"
+            class="work-row reveal"
+            role="listitem"
+          >
+            <div class="wr-left">
+              <span class="wr-title">Connex</span>
+              <span class="wr-desc"
+                >Onboarding UX for a two-sided contractor marketplace — separate
+                flows for clients and contractors, both reaching a live match as
+                their first moment of value.</span
+              >
+            </div>
+            <div class="wr-right">
+              <span class="wr-type">Solo · Desktop</span>
+              <span class="wr-year">2023</span>
+            </div>
+          </a>
         </div>
         <div style="margin-top: 2rem; padding-top: 0">
           <a
@@ -1790,12 +1925,15 @@
       <div class="section-inner">
         <div class="about-grid">
           <div>
-            <div
-              class="about-img-wrap reveal"
-              role="img"
-              aria-label="Portrait placeholder"
-            >
-              <div class="about-img-placeholder">EE</div>
+            <div class="about-img-wrap reveal">
+              <img
+                class="about-photo"
+                src="media/about/emmanuel-portrait.jpg"
+                alt="Portrait of Emmanuel Edigbe"
+                width="720"
+                height="960"
+                loading="lazy"
+              />
               <div class="corner-deco" aria-hidden="true"></div>
             </div>
           </div>
@@ -1832,6 +1970,103 @@
         </div>
       </div>
       <!-- /section-inner -->
+    </section>
+
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience" aria-label="Experience and education">
+      <div class="section-inner">
+        <span class="section-tag">Experience</span>
+        <h2 class="section-h2 reveal">
+          Where I've <em>worked &amp; studied</em>
+        </h2>
+        <div class="cv-cols">
+          <div>
+            <div class="cv-col-h">Experience</div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Jun 2025 – Present</div>
+              <div class="cv-role">User Experience Designer</div>
+              <div class="cv-org">
+                6th Generation Capital Ltd · United Kingdom
+              </div>
+              <p class="cv-desc">
+                Redesigning key user flows and layouts for clearer navigation
+                and task completion, and maintaining shared UI patterns and
+                component standards across product areas, with accessibility
+                built into default designs.
+              </p>
+            </div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Aug 2021 – Jan 2025</div>
+              <div class="cv-role">UX/UI Designer · Freelance</div>
+              <div class="cv-org">Sweden · Part-time</div>
+              <p class="cv-desc">
+                Designed and shipped accessible, responsive websites across
+                retail, education and service sectors. Led usability studies
+                with 30+ participants and applied WCAG 2.2 with screen reader
+                audits.
+              </p>
+            </div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Jun 2024 – Dec 2024</div>
+              <div class="cv-role">Process Operator</div>
+              <div class="cv-org">Northvolt Ett · Skellefteå, Sweden</div>
+              <p class="cv-desc">
+                Used value stream mapping and 5S to raise process output by 15%
+                and cut cycle time by 25%.
+              </p>
+            </div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Mar 2023 – Jun 2023</div>
+              <div class="cv-role">UX/UI Design Intern</div>
+              <div class="cv-org">Lynkrr AB · Göteborg, Sweden</div>
+              <p class="cv-desc">
+                Built and tested web prototypes used by over 1000 users, lifting
+                onboarding completion by 25%, informed by 20+ user interviews
+                and 4 competitor reviews.
+              </p>
+            </div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Jan 2021 – May 2021</div>
+              <div class="cv-role">UX/UI Design Intern</div>
+              <div class="cv-org">Univelcity · Lagos, Nigeria</div>
+              <p class="cv-desc">
+                Developed wireframes, low-fidelity prototypes and style guides.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="cv-col-h">Education</div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Jan 2025 – Jan 2026</div>
+              <div class="cv-role">MSc User Experience Design</div>
+              <div class="cv-org">Birmingham City University · UK</div>
+            </div>
+            <div class="cv-item reveal">
+              <div class="cv-when">Aug 2021 – Jun 2024</div>
+              <div class="cv-role">BSc Graphics Design and Web Development</div>
+              <div class="cv-org">Jönköping University · Sweden</div>
+              <p class="cv-desc">
+                Thesis on the accessibility of websites built with low-code and
+                no-code tools, awarded Audience Favourite and published.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cv-extra reveal">
+          <p>
+            <strong>Skills:</strong> user research, interaction design,
+            usability testing, WCAG 2.2 accessibility, design systems, Figma,
+            and front-end build in HTML, CSS, JavaScript and React.
+          </p>
+          <a
+            href="Emmanuel_Edigbe_UXD.pdf"
+            target="_blank"
+            rel="noopener"
+            class="btn-ghost"
+            >Download CV →</a
+          >
+        </div>
+      </div>
     </section>
 
     <!-- ── PROCESS ── -->
@@ -1995,7 +2230,7 @@
           within 24 hours.
         </p>
         <a
-          href="/cdn-cgi/l/email-protection#90f5f5fdfdf1fee5e8fcd0f7fdf1f9fcbef3fffd"
+          href="mailto:eemmanuxl@gmail.com"
           class="contact-email reveal reveal-d2"
           >Let's Talk</a
         >
@@ -2032,11 +2267,13 @@
     <!-- ── FOOTER ── -->
     <footer>
       <div class="footer-inner">
-        <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+        <p>© 2026 Emmanuel Edigbe. All rights reserved.</p>
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="work.html">Work</a><a href="writing.html">Writing</a
           ><a href="#about">About</a><a href="#process">Process</a
-          ><a href="#">Résumé ↗</a>
+          ><a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
         </nav>
       </div>
       <!-- /footer-inner -->

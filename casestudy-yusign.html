@@ -3,7 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YuSign — Case Study · Emmanuel Edigbe</title>
+    <title>YuSign — Accessible BSL learning app · Emmanuel Edigbe</title>
+    <meta
+      name="description"
+      content="A mobile-first British Sign Language learning app designed from day one for users with low vision, deafness, motor impairment and ADHD. Mean SUS score of 88."
+    />
+    <meta name="theme-color" content="#1c1c1c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
+    />
+    <meta property="og:site_name" content="Emmanuel Edigbe" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="YuSign — Accessible BSL learning app · Emmanuel Edigbe"
+    />
+    <meta
+      property="og:description"
+      content="A mobile-first British Sign Language learning app designed from day one for users with low vision, deafness, motor impairment and ADHD. Mean SUS score of 88."
+    />
+    <meta property="og:image" content="media/og/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Emmanuel Edigbe — UX designer portfolio"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="YuSign — Accessible BSL learning app · Emmanuel Edigbe"
+    />
+    <meta
+      name="twitter:description"
+      content="A mobile-first British Sign Language learning app designed from day one for users with low vision, deafness, motor impairment and ADHD. Mean SUS score of 88."
+    />
+    <meta name="twitter:image" content="media/og/og-card.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -1257,6 +1293,13 @@
         line-height: 1.65;
       }
 
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
       .reveal.visible {
         opacity: 1;
         transform: none;
@@ -1403,10 +1446,8 @@
           #f7f7f5 100%
         );
       }
-      .cs-nav-
-
-/* Readability improvements */
-.cs-p {
+      /* Readability improvements */
+      .cs-p {
         font-size: 0.88rem;
         color: var(--muted);
         line-height: 2.05;
@@ -1699,7 +1740,6 @@
         flex-wrap: wrap;
         margin: 2rem 0;
       }
-      /* ── PAGE FOOTER ── */
 
       .iteration-box {
         background: var(--indigo-subtle);
@@ -1922,6 +1962,24 @@
           max-width: 1080px;
         }
       }
+      @media (max-width: 600px) {
+        .cs-nav-link {
+          padding: 1.5rem 1.4rem;
+        }
+        .cs-nav-footer {
+          flex-direction: column;
+        }
+        .cs-nav-next {
+          border-left: none;
+          border-top: 1px solid var(--border);
+          text-align: left;
+        }
+      }
+      @media (max-width: 700px) {
+        .ys-sketches {
+          grid-template-columns: 1fr !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1937,7 +1995,11 @@
           <li><a href="writing.html">Writing</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#process">Process</a></li>
-          <li><a href="#">Résumé ↗</a></li>
+          <li>
+            <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+              >Résumé ↗</a
+            >
+          </li>
         </ul>
         <div class="nav-right">
           <div class="toggle-wrap">
@@ -2063,18 +2125,27 @@
         <li><a href="writing.html">Writing</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#process">Process</a></li>
-        <li><a href="#">Résumé ↗</a></li>
+        <li>
+          <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+            >Résumé ↗</a
+          >
+        </li>
       </ul>
       <div class="nav-mobile-sub">
         <a href="index.html">Home</a>
-        <a href="#">LinkedIn ↗</a>
+        <a
+          href="https://linkedin.com/in/emmanueledigbe"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn ↗</a
+        >
       </div>
     </div>
 
     <section id="cs-hero">
       <!-- Left: main content -->
       <div class="cs-hero-content">
-        <a href="index.html#work" class="hero-back-link"
+        <a href="work.html" class="hero-back-link"
           ><svg
             width="14"
             height="14"
@@ -2283,75 +2354,94 @@
             immediate visual feedback.
           </div>
         </div>
-        <div class="img-3up">
-          <!-- IMAGE 2: Splash · Welcome · Onboarding sketches -->
-          <div class="img-placeholder medium reveal" role="img">
-            <svg
-              class="img-icon"
-              width="36"
-              height="36"
-              viewBox="0 0 36 36"
-              fill="none"
+        <div
+          class="ys-sketches"
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: start;
+            margin: 2.5rem 0;
+          "
+        >
+          <figure class="reveal" style="margin: 0; min-width: 0">
+            <img
+              src="media/yusign/yusign-sketch-1-splash-welcome-onboarding.jpg"
+              alt="Paper sketch of the splash, welcome and first onboarding screens"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+            <figcaption
+              style="
+                font-family: &quot;DM Mono&quot;, monospace;
+                font-size: 0.64rem;
+                color: var(--muted);
+                margin-top: 0.5rem;
+                line-height: 1.5;
+                letter-spacing: 0.04em;
+              "
             >
-              <rect
-                x="4"
-                y="4"
-                width="28"
-                height="28"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.4"
-              />
-            </svg>
-            <div class="img-label">Splash · Welcome · Onboarding sketches</div>
-            <div class="img-desc">Paper sketch — first page</div>
-          </div>
-
-          <!-- IMAGE 3: Learn a Sign · Quiz screen sketches -->
-          <div class="img-placeholder medium reveal reveal-d1" role="img">
-            <svg
-              class="img-icon"
-              width="36"
-              height="36"
-              viewBox="0 0 36 36"
-              fill="none"
+              Splash · Welcome · Onboarding 1
+            </figcaption>
+          </figure>
+          <figure class="reveal" style="margin: 0; min-width: 0">
+            <img
+              src="media/yusign/yusign-sketch-2-learn-sign-quiz.jpg"
+              alt="Paper sketch of the learn-a-sign screen and four quiz question types"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+            <figcaption
+              style="
+                font-family: &quot;DM Mono&quot;, monospace;
+                font-size: 0.64rem;
+                color: var(--muted);
+                margin-top: 0.5rem;
+                line-height: 1.5;
+                letter-spacing: 0.04em;
+              "
             >
-              <rect
-                x="4"
-                y="4"
-                width="28"
-                height="28"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.4"
-              />
-            </svg>
-            <div class="img-label">Learn a Sign · Quiz screen sketches</div>
-            <div class="img-desc">Paper sketch — second page</div>
-          </div>
-
-          <!-- IMAGE 4: Onboarding flow · Home · Bookmarks -->
-          <div class="img-placeholder medium reveal reveal-d2" role="img">
-            <svg
-              class="img-icon"
-              width="36"
-              height="36"
-              viewBox="0 0 36 36"
-              fill="none"
+              Learn a Sign · Quiz screens and four question types
+            </figcaption>
+          </figure>
+          <figure class="reveal" style="margin: 0; min-width: 0">
+            <img
+              src="media/yusign/yusign-sketch-3-onboarding-home-bookmarks.jpg"
+              alt="Paper sketch of onboarding, the home dashboard and a bookmarked sign"
+              loading="lazy"
+              style="
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+            <figcaption
+              style="
+                font-family: &quot;DM Mono&quot;, monospace;
+                font-size: 0.64rem;
+                color: var(--muted);
+                margin-top: 0.5rem;
+                line-height: 1.5;
+                letter-spacing: 0.04em;
+              "
             >
-              <rect
-                x="4"
-                y="4"
-                width="28"
-                height="28"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.4"
-              />
-            </svg>
-            <div class="img-label">Onboarding flow · Home · Bookmarks</div>
-            <div class="img-desc">Paper sketch — third page</div>
-          </div>
+              Onboarding 1–2 · Home dashboard · Bookmarked sign
+            </figcaption>
+          </figure>
         </div>
       </div>
 
@@ -2968,13 +3058,15 @@
       >
     </div>
     <footer>
-      <p>© 2025 Emmanuel Edigbe. All rights reserved.</p>
+      <p>© 2026 Emmanuel Edigbe. All rights reserved.</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="work.html">Work</a>
         <a href="writing.html">Writing</a>
         <a href="index.html#about">About</a>
         <a href="index.html#process">Process</a>
-        <a href="#">Résumé ↗</a>
+        <a href="Emmanuel_Edigbe_UXD.pdf" target="_blank" rel="noopener"
+          >Résumé ↗</a
+        >
       </nav>
     </footer>
     <script>

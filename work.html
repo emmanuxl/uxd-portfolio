@@ -13,6 +13,14 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
     />
+    <meta
+      property="og:url"
+      content="https://emmanuxl.github.io/uxd-portfolio/work.html"
+    />
+    <link
+      rel="canonical"
+      href="https://emmanuxl.github.io/uxd-portfolio/work.html"
+    />
     <meta property="og:site_name" content="Emmanuel Edigbe" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Work — Emmanuel Edigbe" />
@@ -20,7 +28,10 @@
       property="og:description"
       content="Selected UX case studies: Passa, YuSign, BuffBuddy, Immerseum, Connex, Lume and the portfolio design system. Research-led, accessibility-first design."
     />
-    <meta property="og:image" content="media/og/og-card.png" />
+    <meta
+      property="og:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -33,7 +44,10 @@
       name="twitter:description"
       content="Selected UX case studies: Passa, YuSign, BuffBuddy, Immerseum, Connex, Lume and the portfolio design system. Research-led, accessibility-first design."
     />
-    <meta name="twitter:image" content="media/og/og-card.png" />
+    <meta
+      name="twitter:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -119,7 +133,6 @@
         transition:
           background 0.35s,
           color 0.35s;
-        cursor: none;
       }
       #cursor {
         position: fixed;
@@ -644,6 +657,43 @@
       label {
         cursor: pointer !important;
       }
+
+      /* ── PROJECT THUMBNAILS ── */
+      .work-thumb {
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-radius: var(--r);
+        border: 1px solid var(--border);
+        background: var(--bg3);
+        align-self: start;
+      }
+      .work-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      @media (max-width: 700px) {
+        .work-thumb {
+          aspect-ratio: 16 / 9;
+        }
+      }
+      .work-item {
+        grid-template-columns: 220px 1fr auto;
+        align-items: start;
+      }
+      .work-item:hover .work-thumb img {
+        transform: scale(1.05);
+      }
+      .work-item.no-thumb {
+        grid-template-columns: 1fr auto !important;
+      }
+      @media (max-width: 700px) {
+        .work-item {
+          grid-template-columns: 1fr !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -815,6 +865,15 @@
       </p>
       <nav class="work-list" aria-label="Case studies">
         <a href="casestudy-passa.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/passa/overview.png"
+              alt=""
+              loading="lazy"
+              style="object-position: center top"
+            />
+          </div>
+
           <div>
             <div class="work-meta">Accessibility · Figma Plugin · Solo</div>
             <div class="work-title">Passa — WCAG 2.2 Contrast Plugin</div>
@@ -832,6 +891,15 @@
         </a>
 
         <a href="casestudy-designsystem.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/thumbs/designsystem.jpg"
+              alt=""
+              loading="lazy"
+              style="object-position: center"
+            />
+          </div>
+
           <div>
             <div class="work-meta">Design Systems · Solo</div>
             <div class="work-title">Portfolio Design System</div>
@@ -847,6 +915,15 @@
         </a>
 
         <a href="casestudy-yusign.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/yusign/Hero.png"
+              alt=""
+              loading="lazy"
+              style="object-position: center top"
+            />
+          </div>
+
           <div>
             <div class="work-meta">Accessibility · Learning · Solo</div>
             <div class="work-title">YuSign — BSL Learning App</div>
@@ -862,6 +939,15 @@
         </a>
 
         <a href="casestudy-buffbuddy.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/buffbuddy/buffbuddy-01-hero.png"
+              alt=""
+              loading="lazy"
+              style="object-position: center"
+            />
+          </div>
+
           <div>
             <div class="work-meta">Fitness · Mobile · Group</div>
             <div class="work-title">BuffBuddy — Gym Companion App</div>
@@ -877,6 +963,15 @@
         </a>
 
         <a href="casestudy-immerseum.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/immerseum/immerseum-01-title-vr-headset.jpg"
+              alt=""
+              loading="lazy"
+              style="object-position: center"
+            />
+          </div>
+
           <div>
             <div class="work-meta">AR · Immersive Tech · Group</div>
             <div class="work-title">Immerseum — AR Museum Experience</div>
@@ -892,6 +987,15 @@
         </a>
 
         <a href="casestudy-connex.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/connex/connex-screen01-landing.png"
+              alt=""
+              loading="lazy"
+              style="object-position: center top"
+            />
+          </div>
+
           <div>
             <div class="work-meta">Marketplace · Onboarding · Solo</div>
             <div class="work-title">
@@ -909,6 +1013,15 @@
         </a>
 
         <a href="casestudy-lume.html" class="work-item reveal">
+          <div class="work-thumb" aria-hidden="true">
+            <img
+              src="media/lume/lume-01-overview-homepage.jpg"
+              alt=""
+              loading="lazy"
+              style="object-position: center top"
+            />
+          </div>
+
           <div>
             <div class="work-meta">E-commerce · Web · Solo</div>
             <div class="work-title">Lume — Fashion E-commerce</div>
@@ -926,7 +1039,7 @@
           href="https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1879862"
           target="_blank"
           rel="noopener"
-          class="work-item reveal"
+          class="work-item no-thumb reveal"
         >
           <div>
             <div class="work-meta">Academic Research · Published</div>

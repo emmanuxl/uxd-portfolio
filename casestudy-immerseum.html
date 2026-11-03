@@ -13,6 +13,14 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
     />
+    <meta
+      property="og:url"
+      content="https://emmanuxl.github.io/uxd-portfolio/casestudy-immerseum.html"
+    />
+    <link
+      rel="canonical"
+      href="https://emmanuxl.github.io/uxd-portfolio/casestudy-immerseum.html"
+    />
     <meta property="og:site_name" content="Emmanuel Edigbe" />
     <meta property="og:type" content="article" />
     <meta
@@ -23,7 +31,10 @@
       property="og:description"
       content="An AR museum guide for Meta Quest 3 that personalises language, route and storytelling for every visitor. A Master's project in spatial UI design."
     />
-    <meta property="og:image" content="media/og/og-card.png" />
+    <meta
+      property="og:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -39,7 +50,10 @@
       name="twitter:description"
       content="An AR museum guide for Meta Quest 3 that personalises language, route and storytelling for every visitor. A Master's project in spatial UI design."
     />
-    <meta name="twitter:image" content="media/og/og-card.png" />
+    <meta
+      name="twitter:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -124,7 +138,6 @@
         transition:
           background 0.35s,
           color 0.35s;
-        cursor: none;
       }
       #cursor {
         position: fixed;
@@ -2106,6 +2119,77 @@
           padding: 0.85rem 1rem;
         }
       }
+
+      /* ── AT A GLANCE + CONTENTS ── */
+      .cs-glance {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        margin: 0 0 1.4rem;
+      }
+      .cs-glance > div {
+        background: var(--bg2);
+        padding: 1.3rem 1.4rem;
+      }
+      .cs-glance-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--indigo);
+        margin-bottom: 0.5rem;
+      }
+      .cs-glance p {
+        font-size: 0.8rem;
+        line-height: 1.75;
+        color: var(--ink);
+        margin: 0;
+      }
+      .cs-toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0 0 3rem;
+      }
+      .cs-toc-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-right: 0.4rem;
+      }
+      .cs-toc a {
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        text-decoration: none;
+        border: 1px solid var(--border2);
+        border-radius: 100px;
+        padding: 0.25rem 0.8rem;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .cs-toc a:hover {
+        color: var(--indigo);
+        border-color: var(--indigo-border);
+      }
+      .cs-section {
+        scroll-margin-top: 90px;
+      }
+      .cs-p {
+        font-size: 0.94rem;
+        line-height: 1.95;
+      }
+      @media (max-width: 800px) {
+        .cs-glance {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2341,6 +2425,34 @@
 
     <!-- BODY -->
     <main class="cs-body">
+      <div class="cs-glance reveal" aria-label="Project at a glance">
+        <div>
+          <div class="cs-glance-label">Challenge</div>
+          <p>
+            Museum visits overwhelm: too much text, confusing routes, and
+            stories lost in translation.
+          </p>
+        </div>
+        <div>
+          <div class="cs-glance-label">Approach</div>
+          <p>
+            Three personas and usage scenarios, then a Meta Quest 3 tour system
+            with adaptive storytelling, floor-arrow navigation, haptics and a
+            virtual guide.
+          </p>
+        </div>
+        <div>
+          <div class="cs-glance-label">Result</div>
+          <p>
+            A concept prototype evaluated with five participants, leading to
+            clearer arrows with distance text and a scroll cue.
+          </p>
+        </div>
+      </div>
+      <nav class="cs-toc" id="cs-toc" aria-label="On this page">
+        <span class="cs-toc-label">On this page</span>
+      </nav>
+
       <figure class="im-fig reveal">
         <img
           src="media/immerseum/immerseum-01-title-vr-headset.jpg"
@@ -3292,6 +3404,25 @@
           b.remove();
         });
       });
+
+      // CONTENTS LIST
+      (function () {
+        var secs = document.querySelectorAll(".cs-body .cs-section");
+        var host = document.getElementById("cs-toc");
+        if (!host || !secs.length) return;
+        secs.forEach(function (s, i) {
+          var tag = s.querySelector(".cs-section-tag");
+          if (!tag) return;
+          if (!s.id) s.id = "section-" + (i + 1);
+          var a = document.createElement("a");
+          a.href = "#" + s.id;
+          a.textContent = tag.textContent
+            .replace(/^\s*\d+\s*·\s*/, "")
+            .replace(/&amp;/g, "&")
+            .trim();
+          host.appendChild(a);
+        });
+      })();
     </script>
   </body>
 </html>

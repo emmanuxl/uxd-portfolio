@@ -13,6 +13,14 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
     />
+    <meta
+      property="og:url"
+      content="https://emmanuxl.github.io/uxd-portfolio/casestudy-yusign.html"
+    />
+    <link
+      rel="canonical"
+      href="https://emmanuxl.github.io/uxd-portfolio/casestudy-yusign.html"
+    />
     <meta property="og:site_name" content="Emmanuel Edigbe" />
     <meta property="og:type" content="article" />
     <meta
@@ -23,7 +31,10 @@
       property="og:description"
       content="A mobile-first British Sign Language learning app designed from day one for users with low vision, deafness, motor impairment and ADHD. Mean SUS score of 88."
     />
-    <meta property="og:image" content="media/og/og-card.png" />
+    <meta
+      property="og:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -39,7 +50,10 @@
       name="twitter:description"
       content="A mobile-first British Sign Language learning app designed from day one for users with low vision, deafness, motor impairment and ADHD. Mean SUS score of 88."
     />
-    <meta name="twitter:image" content="media/og/og-card.png" />
+    <meta
+      name="twitter:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -124,7 +138,6 @@
         transition:
           background 0.35s,
           color 0.35s;
-        cursor: none;
       }
       #cursor {
         position: fixed;
@@ -1980,6 +1993,77 @@
           grid-template-columns: 1fr !important;
         }
       }
+
+      /* ── AT A GLANCE + CONTENTS ── */
+      .cs-glance {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        overflow: hidden;
+        margin: 0 0 1.4rem;
+      }
+      .cs-glance > div {
+        background: var(--bg2);
+        padding: 1.3rem 1.4rem;
+      }
+      .cs-glance-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--indigo);
+        margin-bottom: 0.5rem;
+      }
+      .cs-glance p {
+        font-size: 0.8rem;
+        line-height: 1.75;
+        color: var(--ink);
+        margin: 0;
+      }
+      .cs-toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0 0 3rem;
+      }
+      .cs-toc-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-right: 0.4rem;
+      }
+      .cs-toc a {
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        text-decoration: none;
+        border: 1px solid var(--border2);
+        border-radius: 100px;
+        padding: 0.25rem 0.8rem;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .cs-toc a:hover {
+        color: var(--indigo);
+        border-color: var(--indigo-border);
+      }
+      .cs-section {
+        scroll-margin-top: 90px;
+      }
+      .cs-p {
+        font-size: 0.94rem;
+        line-height: 1.95;
+      }
+      @media (max-width: 800px) {
+        .cs-glance {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2216,6 +2300,34 @@
     </section>
 
     <main class="cs-body">
+      <div class="cs-glance reveal" aria-label="Project at a glance">
+        <div>
+          <div class="cs-glance-label">Challenge</div>
+          <p>
+            Existing sign-language tools are inaccessible, jargon-heavy or
+            overwhelming, especially for the people who need them most.
+          </p>
+        </div>
+        <div>
+          <div class="cs-glance-label">Approach</div>
+          <p>
+            Four accessibility personas, paper sketches, and every design choice
+            mapped to a WCAG 2.2 criterion, then adapted from mobile to tablet
+            and desktop.
+          </p>
+        </div>
+        <div>
+          <div class="cs-glance-label">Result</div>
+          <p>
+            Mean SUS score of 88 with five participants, all tasks completed,
+            and 7:1+ contrast.
+          </p>
+        </div>
+      </div>
+      <nav class="cs-toc" id="cs-toc" aria-label="On this page">
+        <span class="cs-toc-label">On this page</span>
+      </nav>
+
       <!-- IMAGE 1: Image -->
 
       <!-- IMAGE 1: 3 hero screens: Onboarding reason selection · Home dashboard · Learn screen showing sign v... -->
@@ -2458,7 +2570,7 @@
         </p>
 
         <!-- IMAGE 5: 3 onboarding screens: Welcome · Let's Get Started · Why are you learning? -->
-        <div class="img-placeholder has-image medium reveal" role="img">
+        <div class="img-placeholder has-image medium reveal">
           <img
             class="case-study-image"
             src="media/yusign/Onboarding.png"
@@ -2490,7 +2602,7 @@
         </figure>
         <div class="img-2up">
           <!-- IMAGE 6: Homepage dashboard -->
-          <div class="img-placeholder has-image medium reveal" role="img">
+          <div class="img-placeholder has-image medium reveal">
             <img
               class="case-study-image"
               src="media/yusign/learn.png"
@@ -2499,10 +2611,7 @@
           </div>
 
           <!-- IMAGE 7: Learn screen with sign video and captions -->
-          <div
-            class="img-placeholder has-image medium reveal reveal-d1"
-            role="img"
-          >
+          <div class="img-placeholder has-image medium reveal reveal-d1">
             <img
               class="case-study-image"
               src="media/yusign/learn.png"
@@ -2534,7 +2643,7 @@
         </figure>
 
         <!-- IMAGE 8: 3 quiz screens: Question · Correct feedback · Matching format -->
-        <div class="img-placeholder has-image medium reveal" role="img">
+        <div class="img-placeholder has-image medium reveal">
           <img
             class="case-study-image"
             src="media/yusign/Quiz.png"
@@ -2549,7 +2658,7 @@
         </p>
         <div class="img-2up">
           <!-- IMAGE 9: Bookmarks with Add and Remove modals -->
-          <div class="img-placeholder has-image medium reveal" role="img">
+          <div class="img-placeholder has-image medium reveal">
             <img
               class="case-study-image"
               src="media/yusign/Bookmark.png"
@@ -2558,10 +2667,7 @@
           </div>
 
           <!-- IMAGE 10: Search: empty · predictive · results -->
-          <div
-            class="img-placeholder has-image medium reveal reveal-d1"
-            role="img"
-          >
+          <div class="img-placeholder has-image medium reveal reveal-d1">
             <img
               class="case-study-image"
               src="media/yusign/Search.png"
@@ -2803,7 +2909,7 @@
         </div>
 
         <!-- IMAGE 11: YuSign on iPad landscape — adapted layout -->
-        <div class="img-placeholder has-image medium reveal" role="img">
+        <div class="img-placeholder has-image medium reveal">
           <img
             class="case-study-image"
             src="media/yusign/Tablet.png"
@@ -2974,7 +3080,7 @@
             <!-- IMAGE 12: Image -->
 
             <!-- IMAGE 12: Before: card-style boxes that look tappable -->
-            <div class="img-placeholder has-image medium" role="img">
+            <div class="img-placeholder has-image medium">
               <img
                 class="case-study-image"
                 src="media/yusign/before.png"
@@ -2987,7 +3093,7 @@
             <!-- IMAGE 13: Image -->
 
             <!-- IMAGE 13: After: plain blocks, single clear "Next" CTA -->
-            <div class="img-placeholder has-image medium" role="img">
+            <div class="img-placeholder has-image medium">
               <img
                 class="case-study-image"
                 src="media/yusign/After.png"
@@ -3203,6 +3309,25 @@
           if (e.key === "Escape") closeMenu();
         });
       }
+
+      // CONTENTS LIST
+      (function () {
+        var secs = document.querySelectorAll(".cs-body .cs-section");
+        var host = document.getElementById("cs-toc");
+        if (!host || !secs.length) return;
+        secs.forEach(function (s, i) {
+          var tag = s.querySelector(".cs-section-tag");
+          if (!tag) return;
+          if (!s.id) s.id = "section-" + (i + 1);
+          var a = document.createElement("a");
+          a.href = "#" + s.id;
+          a.textContent = tag.textContent
+            .replace(/^\s*\d+\s*·\s*/, "")
+            .replace(/&amp;/g, "&")
+            .trim();
+          host.appendChild(a);
+        });
+      })();
     </script>
   </body>
 </html>

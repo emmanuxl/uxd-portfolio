@@ -13,6 +13,11 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231c1c1c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' text-anchor='middle' fill='%23b8b0ff'%3EEE%3C/text%3E%3C/svg%3E"
     />
+    <meta
+      property="og:url"
+      content="https://emmanuxl.github.io/uxd-portfolio/"
+    />
+    <link rel="canonical" href="https://emmanuxl.github.io/uxd-portfolio/" />
     <meta property="og:site_name" content="Emmanuel Edigbe" />
     <meta property="og:type" content="website" />
     <meta
@@ -23,7 +28,10 @@
       property="og:description"
       content="UX designer who starts with research and ends with accessible, intuitive interfaces. Case studies in accessibility, AR/XR and mobile design, plus writing on inclusive design."
     />
-    <meta property="og:image" content="media/og/og-card.png" />
+    <meta
+      property="og:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
@@ -39,7 +47,10 @@
       name="twitter:description"
       content="UX designer who starts with research and ends with accessible, intuitive interfaces. Case studies in accessibility, AR/XR and mobile design, plus writing on inclusive design."
     />
-    <meta name="twitter:image" content="media/og/og-card.png" />
+    <meta
+      name="twitter:image"
+      content="https://emmanuxl.github.io/uxd-portfolio/media/og/og-card.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap"
@@ -127,7 +138,6 @@
         transition:
           background 0.35s,
           color 0.35s;
-        cursor: none;
       }
 
       /* ── CURSOR ── */
@@ -821,7 +831,6 @@
         font-size: 0.63rem;
         letter-spacing: 0.1em;
         color: var(--indigo);
-        opacity: 0.7;
       }
       .wr-ongoing {
         font-size: 0.58rem;
@@ -1379,6 +1388,40 @@
         object-position: center 20%;
         display: block;
       }
+
+      /* ── PROJECT THUMBNAILS ── */
+      .work-thumb {
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-radius: var(--r);
+        border: 1px solid var(--border);
+        background: var(--bg3);
+        align-self: start;
+      }
+      .work-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      @media (max-width: 700px) {
+        .work-thumb {
+          aspect-ratio: 16 / 9;
+        }
+      }
+      .work-row {
+        grid-template-columns: 200px 1fr auto;
+        align-items: center;
+      }
+      .work-row:hover .work-thumb img {
+        transform: scale(1.05);
+      }
+      @media (max-width: 900px) {
+        .work-row {
+          grid-template-columns: 1fr !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1816,6 +1859,15 @@
             class="work-row reveal"
             role="listitem"
           >
+            <div class="work-thumb" aria-hidden="true">
+              <img
+                src="media/passa/overview.png"
+                alt=""
+                loading="lazy"
+                style="object-position: center top"
+              />
+            </div>
+
             <div class="wr-left">
               <span class="wr-title">Passa</span>
               <span class="wr-desc"
@@ -1836,6 +1888,15 @@
             class="work-row reveal"
             role="listitem"
           >
+            <div class="work-thumb" aria-hidden="true">
+              <img
+                src="media/yusign/Hero.png"
+                alt=""
+                loading="lazy"
+                style="object-position: center top"
+              />
+            </div>
+
             <div class="wr-left">
               <span class="wr-title">YuSign</span>
               <span class="wr-desc"
@@ -1855,6 +1916,15 @@
             class="work-row reveal"
             role="listitem"
           >
+            <div class="work-thumb" aria-hidden="true">
+              <img
+                src="media/buffbuddy/buffbuddy-01-hero.png"
+                alt=""
+                loading="lazy"
+                style="object-position: center"
+              />
+            </div>
+
             <div class="wr-left">
               <span class="wr-title">BuffBuddy</span>
               <span class="wr-desc"
@@ -1875,6 +1945,15 @@
             class="work-row reveal"
             role="listitem"
           >
+            <div class="work-thumb" aria-hidden="true">
+              <img
+                src="media/immerseum/immerseum-01-title-vr-headset.jpg"
+                alt=""
+                loading="lazy"
+                style="object-position: center"
+              />
+            </div>
+
             <div class="wr-left">
               <span class="wr-title">Immerseum</span>
               <span class="wr-desc"
@@ -1894,6 +1973,15 @@
             class="work-row reveal"
             role="listitem"
           >
+            <div class="work-thumb" aria-hidden="true">
+              <img
+                src="media/connex/connex-screen01-landing.png"
+                alt=""
+                loading="lazy"
+                style="object-position: center top"
+              />
+            </div>
+
             <div class="wr-left">
               <span class="wr-title">Connex</span>
               <span class="wr-desc"
